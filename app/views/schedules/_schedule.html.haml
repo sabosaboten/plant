@@ -2,12 +2,13 @@
   = schedule.plantname
   = schedule.frecuency
   = schedule.date
-  = schedule.time
+  -# = schedule.time
   = schedule.created_at.strftime("%Y年%m月%d日 %H時%M分")
   -# .main__bar__text
   -#   - if schedule.plantname.present?
   -#     -# %p.lower-message__content
   -#       = schedule.plantname
   = image_tag schedule.image.url, class: 'lower-message__image' if schedule.image.present?
+  = link_to "詳細", schedule_path(schedule.id)
   = link_to "編集", edit_schedule_path(schedule.id)
   = link_to "削除", schedule_path(schedule.id), method: :delete

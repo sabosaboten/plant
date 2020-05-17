@@ -5,8 +5,8 @@ class CreateSchedules < ActiveRecord::Migration[5.0]
       t.string :plantname, null: false
       # t.index :plantname, unique: true
       t.string :frecuency, null: false
-      t.string :date, null: false
-      t.string :time, null: false
+      # t.string :date, null: false
+      t.date :date, null: false
       t.references :user, foreign_key: true
       t.timestamps
     end

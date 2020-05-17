@@ -1,0 +1,7 @@
+.posts__box{data: {post: {id: post.id}}}
+  = post.image
+  = post.text
+  = image_tag post.image.url, class: 'lower-message__image' if post.image.present?
+  = link_to "詳細", post_path(post.id)
+  = link_to "編集", edit_post_path(post.id)
+  = link_to "削除", post_path(post.id), method: :delete

@@ -1,0 +1,10 @@
+.form
+  = form_for [@post] do |f|
+    .input_box
+      = f.text_field :image, class: 'image__plantname', placeholder: '写真'
+      = f.text_field :text, class: 'text_frecuency', placeholder: '記事'
+      .form__image
+        = f.label :image, class: 'form__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+    = f.submit 'Send', class: 'form__submit'

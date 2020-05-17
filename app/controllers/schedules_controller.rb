@@ -16,6 +16,10 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
   end
 
+  def show
+    @schedule = Schedule.find(params[:id])
+  end
+
   def update
     schedule = Schedule.find(params[:id])
     schedule.update(schedule_params)
@@ -31,8 +35,7 @@ class SchedulesController < ApplicationController
 
   private
   def schedule_params
-    params.require(:schedule).permit(:image, :plantname, :frecuency, :date, :time).merge(user_id: current_user.id)
+    params.require(:schedule).permit(:image, :plantname, :frecuency, :date).merge(user_id: current_user.id)
   end
 
 end
-

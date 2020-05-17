@@ -1,6 +1,6 @@
-
 %h3.header__name
   = current_user.name
+= link_to "ショッピング", maps_index_path
 %ul.header__lists
   %li.list
     = link_to new_schedule_path(current_user) do
@@ -8,6 +8,7 @@
   %li.list
     = link_to edit_user_path(current_user) do
       = icon('fas', 'cog', class: 'icon')
+= link_to "投稿", posts_path
 
 .schedules
   = render @schedules

@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root "schedules#index"
-  resources :schedules, only: [:new, :create, :edit, :update, :index, :destroy]
+  resources :schedules
   resources :users, only: [:edit, :update]
-end
+  
+  resources :posts do
+    resources :likes, only: [:create, :destroy]
+  end
 
+  get "maps/index"
+  resources :maps, only: [:index]
+end
