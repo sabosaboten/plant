@@ -8,5 +8,8 @@
     = csrf_meta_tags
   %body
     .header
-      テスト
+      プラントマネジメント
+      = link_to "投稿ページ", posts_path
+      = link_to "ショッピングページ", maps_index_path
+      = link_to "プラント管理ページ", schedules_path
     = yield

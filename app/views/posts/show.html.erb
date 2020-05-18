@@ -1,0 +1,6 @@
+<h3>いいね件数: <%= @post.likes.count %></h3>
+<% if current_user.likes.find_by(post_id: @post.id) %>
+  <%= link_to "いいね解除", post_like_path(@post), method: :delete  %>
+  <% else %>
+  <%= link_to "いいね", post_likes_path(@post), method: :post %>
+<% end %>
