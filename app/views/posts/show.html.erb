@@ -1,6 +1,50 @@
-<h3>いいね件数: <%= @post.likes.count %></h3>
-<% if current_user.likes.find_by(post_id: @post.id) %>
-  <%= link_to "いいね解除", post_like_path(@post), method: :delete  %>
-  <% else %>
-  <%= link_to "いいね", post_likes_path(@post), method: :post %>
-<% end %>
+<div class="show-main">
+  <div class="show-left">
+    <div class="show-content">
+      <div class="show-content-header">
+        <%= @post.user.name%>
+      </div>
+      <div class="show-content-main">
+        <div class="show-content-main-text">
+          <%= link_to @post.text, post_path(@post.id)%>
+        </div>
+        <div class="show-content-main-image">
+          <%-if @post.image.present?%>
+          <%= image_tag @post.image.url, :size =>'200x300', class: 'lower-message__image' if @post.image.present?%>
+          <%end%>
+        </div>
+      </div>
+      <div class="content-footer">
+        <%="コメント#{@post.comments.count}件"%>
+        <%="いいね！#{@post.likes.count}件"%>
+        <% if current_user.likes.find_by(post_id: @post.id) %>
+          <%= link_to "いいね解除", post_like_path(@post), method: :delete  %>
+        <% else %>
+          <%= link_to "いいね", post_likes_path(@post), method: :post %>
+        <% end %>
+      </div>
+    </div>   
+  </div>
+  <div class="show-right">
+    <div class="comment-create">
+      <div class="comment-create-header">
+      </div>
+      <div class="comment-create-main">
+        <%= form_for [@post, @comment] do |f| %>
+          <%= f.text_field :message, class: 'text_frecuency', placeholder: 'コメントを記入'%>
+          <%= f.submit 'Send', class: 'form__submit'%>
+        <% end %>
+      </div>
+    </div>
+    <div class="comment-list">
+      <% @comments.each do |comment| %>
+        <div class="comment-name">
+          <%= comment.user.name %>
+        </div> 
+        <div class="comment-content">
+          <%= comment.message %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

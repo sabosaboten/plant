@@ -4,9 +4,62 @@
 
 .header {
   height: 90px;
-  border-bottom:20px solid green;
   background-color: darkgreen;
   color: #ffffff;
+}
+
+.main{
+  margin-top: 90px;
+  width: 90vw;
+  height: calc(100vh) ;
+  background-color: yellowgreen;
+  margin: 0 auto;
+  display: flex;
+}
+
+
+.contents-box{
+  flex-wrap:wrap;
+  display: flex;
+  overflow: scroll;
+  padding: 20px 50px 0px 50px;
+}
+
+.content{
+  width: 400px;
+  height: 500px;
+  background-color: blue;
+  margin: 20px;
+}
+
+.content-header{
+  height: 100px;
+  background-color: red;
+  width: 100%;
+}
+
+.content-main{
+  width: 100%;
+  height: 300px;
+  background-color: rebeccapurple;
+}
+
+.content-main-text{
+  width: 100%;
+  height: 100px;
+  background-color: yellow;
+}
+
+.content-main-image{
+  width: 100%;
+  height: 200px;
+  background-color: cornflowerblue;
+}
+
+.content-footer{
+  background-color: darkgray;
+  width: 100%;
+  height: 100px;
 }
 
 .schedule__box{
@@ -14,6 +67,13 @@
   margin: 0 auto;
   background-color: gray;
   margin-bottom: 10px;
+}
+
+.footer {
+  height: 50px;
+  background-color: darkgreen;
+  color: white;
+  bottom: 0;
 }
 
 // #map {
@@ -57,3 +117,22 @@
 //     }
 //   }
 // }
+
+.show-main{
+  margin-top: 90px;
+  width: 90vw;
+  height: calc(100vh) ;
+  background-color: yellowgreen;
+  margin: 0 auto;
+  display: flex;
+}
+
+.show-left{
+  width: calc(90vw/2);
+  background-color: yellow;
+}
+
+.show-right{
+  width: calc(90vw/2);
+  background-color: violet;
+}

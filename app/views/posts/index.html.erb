@@ -1,0 +1,26 @@
+<div class="main">
+  <div class="contents-box">
+    <% @posts.each do |post| %>
+      <div class="content">
+        <div class="content-header">
+          <%= post.user.name%>
+        </div>
+        <div class="content-main">
+          <div class="content-main-text">
+            <%= link_to post.text, post_path(post.id)%>
+          </div>
+          <div class="content-main-image">
+            <%-if post.image.present?%>
+              <%# <%=post.image%>
+            <%= image_tag post.image.url, :size =>'200x300', class: 'lower-message__image' if post.image.present?%>
+            <%end%>
+          </div>
+        </div>
+        <div class="content-footer">
+          <%="コメント#{post.comments.count}件"%>
+          <%="いいね！#{post.likes.count}件"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

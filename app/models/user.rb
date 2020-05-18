@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :schedules
   has_many :posts
+  has_many :comments
   has_many :liked_posts, through: :likes, source: :post
   has_many :likes, dependent: :destroy
 

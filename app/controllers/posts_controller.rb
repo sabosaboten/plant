@@ -41,6 +41,7 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :create]
+
   def index
     @posts = Post.all
   end
@@ -48,6 +49,9 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @like = Like.new
+    # 下追加
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user)
   end
 
   def edit
@@ -84,4 +88,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:image, :text).merge(user_id: current_user.id)
   end
+
 end
