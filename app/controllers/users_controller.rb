@@ -15,6 +15,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @name = user.name
     @posts = user.posts
+    @users = User.all
+    @likes = user.likes
   end
 
   private
