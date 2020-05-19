@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   resources :schedules
   
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:edit, :update, :show]
   
   resources :posts do
     resources :likes, only: [:create, :destroy]

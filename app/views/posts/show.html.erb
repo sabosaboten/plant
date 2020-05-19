@@ -2,7 +2,7 @@
   <div class="show-left">
     <div class="show-content">
       <div class="show-content-header">
-        <%= @post.user.name%>
+        <%= link_to @post.user.name, user_path(@post.user.id) %>
       </div>
       <div class="show-content-main">
         <div class="show-content-main-text">
@@ -27,24 +27,30 @@
   </div>
   <div class="show-right">
     <div class="comment-create">
-      <div class="comment-create-header">
-      </div>
+      <p class="comment-create-header">コメント投稿</p>
       <div class="comment-create-main">
         <%= form_for [@post, @comment] do |f| %>
-          <%= f.text_field :message, class: 'text_frecuency', placeholder: 'コメントを記入'%>
+          <%= f.text_area :message, class: 'text_frecuency', rows: 10, cols: 40, placeholder: 'コメントを記入'%>
           <%= f.submit 'Send', class: 'form__submit'%>
         <% end %>
       </div>
     </div>
     <div class="comment-list">
-      <% @comments.each do |comment| %>
-        <div class="comment-name">
-          <%= comment.user.name %>
+        <div class="comment-header">
+          <p>コメント一覧</p>
         </div> 
         <div class="comment-content">
-          <%= comment.message %>
+          <% @comments.each do |comment| %>
+            <div class="comment-box">
+                <div class="comment-content-name">
+                  <%= comment.user.name %>
+                </div>
+                <div class="comment-content-name">
+                  <%= comment.message %>
+                </div>
+            </div>
+          <% end %>
         </div>
-      <% end %>
     </div>
   </div>
 </div>

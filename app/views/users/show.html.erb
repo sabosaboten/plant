@@ -1,9 +1,10 @@
 <div class="main">
+    <p><%= @name %>さんの投稿一覧</p>
   <div class="contents-box">
     <% @posts.each do |post| %>
       <div class="content">
         <div class="content-header">
-          <%= link_to post.user.name, user_path(post.user.id)%>
+          <%= post.user.name %>
         </div>
         <div class="content-main">
           <div class="content-main-text">
