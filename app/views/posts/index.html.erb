@@ -27,7 +27,7 @@
 
 <div class="main">
   <div class="contents-box">
-    <%= @all_ranks.each do |post| %>
+    <% @all_ranks.each do |post| %>
       <div class="content">
         <div class="content-header">
             <%= link_to post.user.name, user_path(post.user.id)%>

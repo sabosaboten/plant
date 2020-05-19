@@ -5,6 +5,10 @@
         <div class="mypage-content">
           <div class="mypage-content-header">
             <%= post.user.name %>
+            <% if user_signed_in? && current_user.id == post.user_id %>
+              <%= link_to "削除", post_path(post.id), method: :delete %>
+              <%= link_to "編集", edit_post_path(post.id) %>
+            <% end %>
           </div>
           <div class="mypage-content-main">
             <div class="mypage-content-main-text">

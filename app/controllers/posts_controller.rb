@@ -72,7 +72,7 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    redirect_to posts_path
+    redirect_back(fallback_location: root_path) 
   end
 
   def create
