@@ -8,11 +8,13 @@
     = csrf_meta_tags
   %body
     .header
-      プラントマネジメント
+      = link_to "プラントマネジメント", posts_path
       = link_to "投稿一覧", posts_path
       = link_to "投稿", new_post_path
       = link_to "ショッピングページ", maps_index_path
       = link_to "プラント管理ページ", schedules_path
-      -# = link_to "投稿マイページ", user_path(current_user.id)
+      = link_to "投稿マイページ", user_path(current_user)
+      = link_to edit_user_path(current_user) do
+        = icon('fas', 'cog', class: 'icon')
     = yield
     .footer

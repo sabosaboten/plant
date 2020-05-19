@@ -43,7 +43,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :create]
 
   def index
-    @posts = Post.all
+    @posts = Post.includes(:user).order("created_at DESC")
+    @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
   end
 
   def show
@@ -78,7 +79,7 @@ class PostsController < ApplicationController
     @post = Post.create(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_back(fallback_location: root_path)
+      redirect_to posts_path
     else
       redirect_back(fallback_location: root_path)
     end

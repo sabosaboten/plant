@@ -7,10 +7,10 @@ class User < ApplicationRecord
          validates :name, presence: true, uniqueness: true
 
   has_many :schedules
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :comments
-  has_many :liked_posts, through: :likes, source: :post
   has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :following_user, through: :follower, source: :followed
