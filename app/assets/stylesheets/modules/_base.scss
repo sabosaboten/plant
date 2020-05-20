@@ -14,9 +14,12 @@ header{
 
 .footer {
   height: 50px;
+  width: 100vw;
   background-image: url("/assets/green_dust_scratch.png");
   color: white;
   bottom: 0;
   text-align: center;
   line-height: 50px;
+  position: fixed;
+  z-index:9999;
 }

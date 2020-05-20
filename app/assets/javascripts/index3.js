@@ -22,3 +22,4 @@ $(function()  {
   // タブがクリックされたらtabSwitch関数を呼び出す
   tabs.click(tabSwitch);    
 });
+
