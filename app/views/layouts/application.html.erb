@@ -25,9 +25,11 @@
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <title>Plant</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags%>
+    <%# <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%# <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags%>ß
   </head>
   <body>
     <header class="header">
@@ -60,6 +62,12 @@
             <%= link_to "新規登録", new_user_registration_path, :class => 'post' %>
           </div>
         <% end %>
+
+    <ul class="menu">
+        <li><a href="#" id="about" class="menu_item active">新規投稿</a></li>
+        <li><a href="#" id="service" class="menu_item">人気投稿</a></li>
+    </ul>
+
 
     </header>
 

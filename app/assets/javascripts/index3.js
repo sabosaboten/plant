@@ -1,50 +1,24 @@
-function initMap() {
-  // Geolocation APIに対応している
-  if (navigator.geolocation) {
-    // 現在地を取得
-    navigator.geolocation.getCurrentPosition(
-      // 取得成功した場合
-      function(position) {
-        // 緯度・経度を変数に格納
-        var mapLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        // マップオプションを変数に格納
-        var mapOptions = {
-          zoom : 15,          // 拡大倍率
-          center : mapLatLng  // 緯度・経度
-        };
-        // マップオブジェクト作成
-        var map = new google.maps.Map(
-          document.getElementById("map"), // マップを表示する要素
-          mapOptions         // マップオプション
-        );
-        //マップにマーカーを表示する
-        var marker = new google.maps.Marker({
-          map : map,             // 対象の地図オブジェクト
-          position : mapLatLng   // 緯度・経度
-        });
-      
-      },
-      // 取得失敗した場合
-      function(error) {
-        // エラーメッセージを表示
-        switch(error.code) {
-          case 1: // PERMISSION_DENIED
-            alert("位置情報の利用が許可されていません");
-            break;
-          case 2: // POSITION_UNAVAILABLE
-            alert("現在位置が取得できませんでした");
-            break;
-          case 3: // TIMEOUT
-            alert("タイムアウトになりました");
-            break;
-          default:
-            alert("その他のエラー(エラーコード:"+error.code+")");
-            break;
-        }
-      }
-    );
-  // Geolocation APIに対応していない
-  } else {
-    alert("この端末では位置情報が取得できません");
+$(function()  {
+  // タブのDOM要素を取得し、変数で定義
+  let tabs = $(".menu_item");
+
+  // クラスの切り替えをtabSwitch関数で定義
+  function tabSwitch() {
+    // 全てのactiveクラスのうち、最初の要素を削除（"[0]は、最初の要素の意味"）
+    $(".active").removeClass("active");
+
+    // クリックしたタブにactiveクラスを追加
+
+    $(this).addClass("active");
+
+    // 何番目の要素がクリックされたかを、配列tabsから要素番号を取得
+    const index = tabs.index(this);
+
+    // クリックしたタブに対応するshowクラスを追加する
+    $(".main").removeClass("show").eq(index).addClass("show");
+    console.log("hello")
   }
-}
+
+  // タブがクリックされたらtabSwitch関数を呼び出す
+  tabs.click(tabSwitch);    
+});
