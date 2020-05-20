@@ -15,7 +15,7 @@ $(function()  {
     const index = tabs.index(this);
 
     // クリックしたタブに対応するshowクラスを追加する
-    $(".main").removeClass("show").eq(index).addClass("show");
+    $(".contents-box").removeClass("show").eq(index).addClass("show");
     console.log("hello")
   }
 
