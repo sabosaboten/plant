@@ -9,9 +9,9 @@
 
 .main{
   padding-top: 90px;
-  width: 90vw;
+  width: 80vw;
   height: 100vh;
-  background-color: yellowgreen;
+  // background-color: lightgreen;
   margin: 0 auto;
   // display: none;
 }
@@ -19,10 +19,9 @@
 .options{
   margin: 0 auto;
   height: 100px;
-  width: 300px;
   // background-color: lightcoral;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .menu{
@@ -33,23 +32,37 @@
 .menu_item.active{
   display: inline-block;
   padding: 15px;
-  border: 5px solid lightskyblue ;
-  background: #353d3e;
+  border: 5px solid #7BC61A;
+  background: green;
   color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  width: 200px;
+  margin: 0 20px;
+  text-align: center;
 }
 
 .menu_item{
   display: inline-block;
   padding: 15px;
-  border: 5px solid lightskyblue ;
+  border: 5px solid #7BC61A;
+  color:#7BC61A;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  width: 200px;
+  margin: 0 20px;
+  text-align: center;
 }
 
 .post-search-box{
   height: 100px;
   width: 800px;
-  background-color: black;
   margin: 0 auto;
   padding: 30px;
+  border:solid 5px saddlebrown;
+  background-color: wheat;
 }
 
 .post-search-form{
@@ -57,10 +70,12 @@
 
 .swich.show{
   display: block;
+  padding-bottom: 40px;
 }
 
 .swich{
   display: none;
+  padding-bottom: 40px;
 }
 
 
@@ -84,40 +99,53 @@
 }
 
 .content{
-  width: 400px;
-  height: 500px;
-  background-color: blue;
+  width: 300px;
+  // height: 500px;
+  background-color: white;
   margin: 20px;
+  border-radius: 50px;
+  border: solid 5px #7BC61A;
 }
 
 .content-header{
-  height: 100px;
-  background-color: red;
+  height: 40px;
+  // background-color: red;
   width: 100%;
+  padding: 5px 15px;
+  font-size: 20px;
+  border-bottom:solid 5px #7BC61A;
 }
 
 .content-main{
   width: 100%;
   height: 300px;
-  background-color: rebeccapurple;
+  // background-color: rebeccapurple;
 }
 
 .content-main-text{
   width: 100%;
-  height: 100px;
-  background-color: yellow;
+  height: 80px;
+  padding: 5px 15px;
 }
 
 .content-main-image{
   width: 100%;
-  height: 200px;
-  background-color: cornflowerblue;
+  height: 100%;
+  // background-color: cornflowerblue;
+  display: flex;
+  justify-content: center;
+}
+
+.post-image{
+  border: solid 3px green;
 }
 
 .content-footer{
-  background-color: darkgray;
+  background-color: #7BC61A;
   width: 100%;
-  height: 100px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 15px;
 }
 
 .schedule__box{

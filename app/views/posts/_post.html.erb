@@ -3,18 +3,19 @@
     <%= link_to post.user.name, user_path(post.user.id)%>
   </div>
   <div class="content-main">
-    <div class="content-main-text">
-      <%= link_to post.text, post_path(post.id)%>
-    </div>
     <div class="content-main-image">
       <%-if post.image.present?%>
         <%# <%=post.image%>
-      <%= image_tag post.image.url, :size =>'150x200', class: 'lower-message__image' if post.image.present?%>
+      <%= image_tag post.image.url, :size =>'300x300', class: 'post-image' if post.image.present?%>
       <%end%>
     </div>
   </div>
   <div class="content-footer">
     <%="コメント#{post.comments.count}件"%>
     <%="いいね！#{post.likes.count}件"%>
+  </div>
+  <div class="content-main-text">
+    <p><%= simple_format(post.text) %></p>
+    <%= link_to post.text, post_path(post.id)%>
   </div>
 </div>

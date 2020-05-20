@@ -30,10 +30,30 @@
     </div>
   </div>
   <div class= "mypage-right">
-    
-    <div class="follower-box">
-    <h3>フォロー一覧</h3>
+    <div class= "info-box">
+      <ul class="info-menu">
+        <li><a href="#" id="about" class="info-menu-item active">フォロー一覧 <%="(#{@user.follower.count})"%></a></li>
+        <%# <p><%= "#{@user.follower.count}" %>
+        <li><a href="#" id="service" class="info-menu-item">フォロワー一覧 <%="(#{@user.followed.count})"%></a></li>
+        <li><a href="#" id="service" class="info-menu-item">いいね <%="(#{@likes.count})"%></a></li>
+      </ul>
+    </div>
+    <div class="info-box-content show">
       <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+          <p>
+            <%= "id: #{user.id} email: #{user.email}" %>
+            <%= "#{user.name}" %>
+            <% if current_user.following?(user) %>
+              <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+            <% else %>
+              <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+            <% end %>
+            <%= link_to "show", user_path(user) %>
+          </p>
+      <% end %>
+    </div>
+    <div class="info-box-content">
+      <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
         <p>
           <%= "id: #{user.id} email: #{user.email}" %>
           <%= "#{user.name}" %>
@@ -46,29 +66,38 @@
         </p>
       <% end %>
     </div>
-    
-    <div class="followed-box">
-      <h3>フォロワー一覧</h3>
-        <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
-        <p>
-          <%= "id: #{user.id} email: #{user.email}" %>
-          <%= "#{user.name}" %>
-          <% if current_user.following?(user) %>
-            <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
-          <% else %>
-            <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
-          <% end %>
-          <%= link_to "show", user_path(user) %>
-        </p>
-        <% end %>
-    </div>
+    <div class="info-box-content">
+      <%# <%="いいね！#{@likes.count}件"%>
+      <% @user.liked_posts.where.not(id: current_user.id).each do |post| %>
+          
+          <p>
+            <%# <%= "#{@user.posts}" %> 
+            <%= "#{post.user.name}" %>
+            <%= link_to "show", post_path(post.id) %>
+          </p>
+          <%-if post.image.present?%>
+              <%= image_tag post.image.url, :size =>'150x200', class: 'lower-message__image' if post.image.present?%>
+          <%end%>
 
-    <div class="like-box">
-      <h3>Like一覧</h3>
-        <%="いいね！#{@likes.count}件"%>
+      <% end %>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <% if user_signed_in? %>
   <h1>ユーザー一覧画面</h1>
