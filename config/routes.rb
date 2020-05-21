@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :schedules
   
   resources :users, only: [:edit, :update, :show, :index]
+
+  get '/map_request', to: 'maps#map', as: 'map_request'
   
   resources :posts do
     collection do
@@ -19,4 +21,7 @@ Rails.application.routes.draw do
 
   get "maps/index"
   resources :maps, only: [:index]
+
+  resources :shops
+  
 end

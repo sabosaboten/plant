@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200519030743) do
+ActiveRecord::Schema.define(version: 20200521121924) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "message"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 20200519030743) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_likes_on_post_id", using: :btree
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
+  end
+
+  create_table "maps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "shopname"
+    t.string   "address"
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.integer  "user_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["user_id"], name: "index_maps_on_user_id", using: :btree
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -58,6 +69,17 @@ ActiveRecord::Schema.define(version: 20200519030743) do
     t.index ["user_id"], name: "index_schedules_on_user_id", using: :btree
   end
 
+  create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "address"
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.integer  "user_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["user_id"], name: "index_shops_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                null: false
     t.string   "email",                  default: "", null: false
@@ -76,6 +98,8 @@ ActiveRecord::Schema.define(version: 20200519030743) do
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
+  add_foreign_key "maps", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "schedules", "users"
+  add_foreign_key "shops", "users"
 end
