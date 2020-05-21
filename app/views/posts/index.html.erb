@@ -8,7 +8,7 @@
   <div class="post-search-box">
     <%= form_tag(search_posts_path, :method => "get", class: "post-search-form") do %>
       <%= text_field_tag :keyword %>
-      <%= submit_tag "submit", :name => nil %>
+      <%= submit_tag "検索", :name => nil, class: "post-search-submit" %>
     <% end %>
   </div>
   <div class="swich show">

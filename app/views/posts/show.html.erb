@@ -48,6 +48,11 @@
                 <div class="comment-content-name">
                   <%= comment.message %>
                 </div>
+                <% if user_signed_in? && current_user.id == comment.user_id %>
+                <div class="comment-content-change">
+                  <%= link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete  %>
+                </div>
+                <% end %>
             </div>
           <% end %>
         </div>

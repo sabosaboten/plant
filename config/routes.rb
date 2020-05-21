@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "schedules#index"
+  root "users#index"
   
   resources :schedules
   
-  resources :users, only: [:edit, :update, :show]
+  resources :users, only: [:edit, :update, :show, :index]
   
   resources :posts do
     collection do

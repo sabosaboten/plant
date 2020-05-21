@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     @likes = user.likes
   end
 
+  def index
+
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email)
