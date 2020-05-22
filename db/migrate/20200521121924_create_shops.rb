@@ -5,6 +5,7 @@ class CreateShops < ActiveRecord::Migration[5.0]
       t.string :address
       t.float :latitude
       t.float :longitude
+      t.string :text
       t.references :user, foreign_key: true
       t.timestamps
     end

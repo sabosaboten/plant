@@ -25,7 +25,7 @@ class ShopsController < ApplicationController
 
   private
   def shop_params
-    params.require(:shop).permit(:name, :address, :latitude, :longitude).merge(user_id: current_user.id)
+    params.require(:shop).permit(:name, :address, :latitude, :longitude, :text).merge(user_id: current_user.id)
   end
 
 end

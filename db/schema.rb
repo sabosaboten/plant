@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20200521121924) do
     t.string   "address"
     t.float    "latitude",   limit: 24
     t.float    "longitude",  limit: 24
+    t.string   "text"
     t.integer  "user_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -74,6 +75,7 @@ ActiveRecord::Schema.define(version: 20200521121924) do
     t.string   "address"
     t.float    "latitude",   limit: 24
     t.float    "longitude",  limit: 24
+    t.string   "text"
     t.integer  "user_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
