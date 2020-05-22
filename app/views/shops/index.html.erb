@@ -42,33 +42,7 @@
 </style>
 
 <script type="text/javascript">
-    
-    var markerData = [
-      
- {
-        name: '東京駅',
-     lat: 35.681236,
-        lng: 139.767125
- }, {
-        name: '淡路町駅',
-     lat: 35.69496,
-      lng: 139.76746000000003
- }, {
-        name: '御茶ノ水駅',
-        lat: 35.6993529,
-        lng: 139.76526949999993
- }, {
-        name: '神保町駅',
-     lat: 35.695932,
-     lng: 139.75762699999996
- }, {
-        name: '新御茶ノ水駅',
-       lat: 35.696932,
-     lng: 139.76543200000003
- }
-]
-    
-    
+     
     function initMap() {
         <% @shops.each do |shop| %>
         var test ={lat: <%= shop.latitude %>, lng: <%= shop.longitude %>};

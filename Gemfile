@@ -64,3 +64,5 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'geocoder'
+
+gem 'gmaps4rails'
