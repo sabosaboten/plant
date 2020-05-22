@@ -38,7 +38,8 @@
       <% end %>
       <%= link_to "投稿一覧", posts_path%>
       <% if user_signed_in? %>
-      <%= link_to "投稿", new_post_path%>
+      <%= link_to "記事投稿", new_post_path%>
+      <%= link_to "店投稿", new_shop_path%>
       <% end %>
       <%= link_to "ショッピングページ", shops_path%>
       <%= link_to "プラント管理ページ", schedules_path%>

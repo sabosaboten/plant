@@ -1,16 +1,21 @@
 class ShopsController < ApplicationController
   def index
-    @shop = Shop.new
+    # @shop = Shop.new
     @shops = Shop.all
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
       marker.lat shop.latitude
       marker.lng shop.longitude
-      marker.infowindow shop.name
+      # marker.infowindow shop.name
+      marker.infowindow render_to_string(partial:"shops/infowindow", locals:{ shop: shop })
     end
   end
 
   def show
     @shop = Shop.find(params[:id])
+  end
+
+  def new
+    @shop = Shop.new
   end
 
   def create
