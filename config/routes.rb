@@ -23,5 +23,7 @@ Rails.application.routes.draw do
   resources :maps, only: [:index]
 
   resources :shops
+
+  resources :events
   
 end

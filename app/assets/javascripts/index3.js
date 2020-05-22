@@ -47,3 +47,20 @@ $(function()  {
   // タブがクリックされたらtabSwitch関数を呼び出す
   tabs.click(tabSwitch);    
 });
+
+$(function () {
+  function eventCalendar() {
+      return $('#calendar').fullCalendar({});
+  };
+  function clearCalendar() {
+      $('#calendar').html('');
+  };
+  $(document).on('turbolinks:load', function () {
+  eventCalendar();
+  });
+  $(document).on('turbolinks:before-cache', clearCalendar);
+
+  $('#calendar').fullCalendar({
+  events: '/events.json'
+  });
+});
