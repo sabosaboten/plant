@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed, source: :follower
   has_many :shops
+  has_many :events
+  has_many :originals
 
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
