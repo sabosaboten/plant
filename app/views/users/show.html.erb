@@ -4,6 +4,7 @@
 
 
 <div class= "mypage-main">
+  <%= link_to "プラント管理", user_events_path(current_user.id)%>
   <div class= "mypage-left">
     <div class="mypage-contents-box">
       <% @posts.each do |post| %>

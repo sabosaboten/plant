@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   
   resources :schedules
   
-  resources :users, only: [:edit, :update, :show, :index]
+  resources :users, only: [:edit, :update, :show, :index] do
+  resources :events 
+  end
+
+
 
   get '/map_request', to: 'maps#map', as: 'map_request'
   
@@ -24,6 +28,6 @@ Rails.application.routes.draw do
 
   resources :shops
 
-  resources :events
-  
+  resources :originals
+
 end
