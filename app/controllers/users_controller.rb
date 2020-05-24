@@ -26,6 +26,8 @@ class UsersController < ApplicationController
       marker.infowindow render_to_string(partial:"shops/infowindow", locals:{ shop: shop })
     end
 
+    @events = @user.events
+
   end
 
   def index

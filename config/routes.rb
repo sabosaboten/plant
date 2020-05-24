@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   
   resources :schedules
   
-  resources :users, only: [:edit, :update, :show, :index] do
+  resources :users, only: [:edit, :update, :show, :index]
   resources :events 
-  end
 
 
 

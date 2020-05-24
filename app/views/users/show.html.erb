@@ -4,7 +4,8 @@
 
 
 <div class= "mypage-main">
-  <%= link_to "プラント管理", user_events_path(current_user.id)%>
+  <%# <%= link_to "プラント管理", user_events_path(current_user.id)%> %>
+  <%= link_to "プラント管理", events_path%>
   <div class= "mypage-left">
     <div class="mypage-contents-box">
       <% @posts.each do |post| %>
@@ -173,3 +174,4 @@
 </script>
 
 
+<div id="calendar"></div>
