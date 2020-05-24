@@ -12,16 +12,15 @@
 
 
 <% @originals.each do |original| %>
+  <%= original.plantname %>
   <%= image_tag original.image, :size =>'100x100', class: 'post-image' if original.image.present?%>
-  <%# <%= original.plantname %>
-
 
   <%= form_for @event do |f|%>
     <%= f.hidden_field :title, :value => "#{original.plantname}"%>
-    <div class ="field">
+    <%# <div class ="field">
       <%= f.label :description%>
-      <%= f.text_area :description%>
-    </div>
+      <%# <%= f.text_area :description%>
+    <%# </div> %> 
     <div class ="field">
       <%= f.label :start_date%>
       <%= f.datetime_select :start_date%>
