@@ -8,6 +8,8 @@ class EventsController < ApplicationController
     user = User.find(current_user.id)
     @events = user.events
     # @events = Event.all
+    @original = Original.new
+    @originals = user.originals
   end
 
   # GET /events/1
