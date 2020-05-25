@@ -18,6 +18,7 @@
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/lang/ja
+//= require bootstrap-sprockets
 
 $(document).ready(function(){
   $('#calendar').fullCalendar({

@@ -69,3 +69,5 @@ gem 'gmaps4rails'
 
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+
+gem 'bootstrap-sass'
