@@ -18,3 +18,12 @@
     handler.fitMapToBounds();
   });
 </script>
+
+<% if user_signed_in? %>
+  <div class="d-none d-lg-block">
+    <%= link_to icon("fas", "plus-circle") + ' 新規投稿', new_shop_path, class: 'new-post-btn--pc' %>
+  </div>
+  <div class="d-block d-lg-none">
+    <%= link_to icon("fas", "plus"), new_shop_path, class: 'new-post-btn--sp' %>
+  </div>
+<% end %>
