@@ -1,3 +1,4 @@
+<!---
 <div class="main">
   <div class="options">
     <ul class="menu">
@@ -26,7 +27,78 @@
     </div>
   </div>
 </div>
+--->
+<div class="container container-posts">
+  <div class="row options">
+    <ul class="menu">
+      <div class="col-4 off-set2"><li><a href="#" id="about" class="menu_item active">新規投稿</a></li></div>
+      <div class="col-4 off-set2"><li><a href="#" id="service" class="menu_item">人気投稿</a><li></div>
+    </ul>
+  </div>
 
-<h1>ボタンの練習</h1>
-<a href="#" class="btn btn-success">ボタン</a>
-<a href="#" class="btn btn-warning">ボタン</a>
+
+      <li><a href="#" id="about" class="menu_item active">新規投稿</a></li>
+      <li><a href="#" id="service" class="menu_item">人気投稿</a></li>
+
+  <div class="row search">
+    <%= form_tag(search_posts_path, :method => "get", class: "post-search-form") do %>
+      <%= text_field_tag :keyword %>
+      <%= submit_tag "検索", :name => nil, class: "post-search-submit" %>
+    <% end %>
+  </div>
+
+  <div class="swich show">
+  <div class="row post-cards">
+    <% @posts.each do |post| %>
+      <div class="col-sm-6 col-md-4 card-index">
+        <div class="card">
+          <div class="card-header">
+            <%= link_to post.user.name, user_path(post.user.id) %>
+          </div>
+          <div class="card-body">
+            <%-if post.image.present?%>
+              <%= link_to post_path(post.id) do %>
+                <%= image_tag post.image, :size =>'275x275', class: 'post-image' if post.image.present?%>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="card-info">
+            <%="コメント#{post.comments.count}件"%>
+            <%="いいね！#{post.likes.count}件"%>
+          </div>
+          <div class="card-text">
+            <a><%= post.text %></a>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+  </div>
+  <div class="swich">
+  <div class="row post-cards">
+    <% @all_ranks.each do |post| %>
+      <div class="col-sm-6 col-md-4 card-index">
+        <div class="card">
+            <div class="card-header">
+            <%= link_to post.user.name, user_path(post.user.id) %>
+          </div>
+          <div class="card-body">
+            <%-if post.image.present?%>
+              <%= link_to post_path(post.id) do %>
+                <%= image_tag post.image, :size =>'275x275', class: 'post-image' if post.image.present?%>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="card-info">
+            <%="コメント#{post.comments.count}件"%>
+            <%="いいね！#{post.likes.count}件"%>
+          </div>
+          <div class="card-text">
+          <a><%= simple_format(post.text) %></a>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+  </div>
+</div>

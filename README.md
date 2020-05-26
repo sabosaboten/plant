@@ -154,3 +154,145 @@ div class="follower-box">
       }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Jr1NrfngK80oIANtzFL6LWsYJSKoz3c&callback=initMap" async defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%# -# !!!
+-# %html
+-#   %head
+-#     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
+-#     %title Plant
+-#     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+-#     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+-#     = csrf_meta_tags
+-#   %body
+-#     .header
+-#       = link_to "プラントマネジメント", posts_path
+-#       = link_to "投稿一覧", posts_path
+-#       = link_to "投稿", new_post_path
+-#       = link_to "ショッピングページ", maps_index_path
+-#       = link_to "プラント管理ページ", schedules_path
+-#       = link_to "投稿マイページ", user_path(current_user)
+-#       = link_to edit_user_path(current_user) do
+-#         = icon('fas', 'cog', class: 'icon')
+-#     = yield
+-#     .footer %>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Plant</title>
+    <%# <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%# <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags%>
+  </head>
+
+  <body data-turbolinks="false">
+    <header class="header">
+      <%= link_to users_path do %>
+        <img src="https://img.icons8.com/color/96/000000/natural-food.png", width="85" height="85", class="header-icon">
+      <% end %>
+      <%= link_to "投稿一覧", posts_path%>
+      <% if user_signed_in? %>
+      <%= link_to "記事投稿", new_post_path%>
+      <%= link_to "店投稿", new_shop_path%>
+      <% end %>
+      <%= link_to "ショッピングページ", shops_path%>
+      <%= link_to "プラント管理ページ", schedules_path%>
+      <%# <%= link_to "投稿マイページ", user_path(current_user.id)%>
+      <%# <%= link_to edit_user_path(current_user)%>
+        <%# <%= icon('fas', 'cog', class: 'icon')%>
+      
+      <% if user_signed_in? %>
+        <div class="user_nav grid-6">
+          <span><%= current_user.name %>
+            <ul class="user__info">
+              <li>
+                <a href="/users/<%= current_user.id %>">マイページ</a>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+          </span>
+            <a class="post" href="/posts/new">投稿する</a>
+          </div>
+        <% else %>
+          <div class="grid-6">
+            <%= link_to "ログイン", new_user_session_path, :class => 'post' %>
+            <%= link_to "新規登録", new_user_registration_path, :class => 'post' %>
+          </div>
+        <% end %>
+
+    <%# <ul class="menu">
+        <li><a href="#" id="about" class="menu_item active">新規投稿</a></li>
+        <li><a href="#" id="service" class="menu_item">人気投稿</a></li>
+    </ul> %>
+
+
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navi" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+ 
+      <div class="collapse navbar-collapse" id="bs-navi">
+        <ul class="nav navbar-nav">
+          <li><a href="posts">投稿</a></li>
+          <li><a href="shops">プラントショップ</a></li>
+          <li><a href="#">マイページ</a></li>
+          <li><a href="#">マイプラント</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+    </header>
+
+    <%= yield %>
+    
+    <%# <footer class="footer">
+      <p>
+        Copyright Plant 2020.
+      </p>
+    </footer> %>
+    
+  </body>
+</html>
+
+<%# 
+    <% meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/ %>
