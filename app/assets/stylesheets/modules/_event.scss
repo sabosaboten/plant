@@ -1,0 +1,32 @@
+.event-top{
+  width: 100%;
+  margin-top: 60px;
+  border: solid 3px green;
+}
+
+.plant-registration{
+  padding: 10px 0 ;
+  display: flex;
+  justify-content: center;
+}
+
+.plant-list{
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  flex-wrap:wrap;
+}
+
+.plant-list-box{
+  border: solid 3px green;
+  margin: 0 5px;
+  width: 205px;
+}
+
+.myplant-image{
+  border: solid 2px green;
+}
+
+.my-plant-calender{
+  padding: 20px 20%;
+}

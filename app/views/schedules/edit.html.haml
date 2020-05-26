@@ -1,0 +1,41 @@
+-# .form
+-#   = form_for [@schedule] do |f|
+-#     .input_box
+-#       = f.text_field :plantname, class: 'form__plantname', placeholder: '植物の名前'
+-#       = f.text_field :frecuency, class: 'form__frecuency', placeholder: '頻度'
+-#       = f.text_field :date, class: 'form__date', placeholder: '予定日'
+-#       = f.text_field :time, class: 'form__time', placeholder: '予定時間'
+-#       .form__image
+-#         = f.label :image, class: 'form__image' do
+-#           = icon('fas', 'image', class: 'icon')
+-#           = f.file_field :image, class: 'hidden'
+-#     = f.submit 'Send', class: 'form__submit'
+-# = link_to "マイプラント一覧に戻る", schedules_path, class: '#'
+
+-# .form
+-#   = form_for [@schedule] do |f|
+-#     .input_box
+-#       = f.text_field :plantname, class: 'form__plantname', placeholder: '植物の名前'
+-#       = f.text_field :frecuency, class: 'form__frecuency', placeholder: '頻度'
+-#       -# = f.date_select :date, class: 'form__date', placeholder: '予定日'
+-#       = f.datetime_select :datetime, class: 'form__time', discard_year:true, :true use_month_numbers: true, order:[:month,:year,:day], date_separator:'/', placeholder: '予定時間'
+-#       .form__image
+-#         = f.label :image, class: 'form__image' do
+-#           = icon('fas', 'image', class: 'icon')
+-#           = f.file_field :image, class: 'hidden'
+-#     = f.submit 'Send', class: 'form__submit'
+-# = link_to "マイプラント一覧に戻る", schedules_path, class: '#'
+
+.form
+  = form_for [@schedule] do |f|
+    .input_box
+      = f.text_field :plantname, class: 'form__plantname', placeholder: '植物の名前'
+      = f.text_field :frecuency, class: 'form__frecuency', placeholder: '頻度'
+      -# = f.date_select :date, class: 'form__date'
+      = f.date_select :date, class: 'form__time', use_month_numbers: true, order:[:month,:day], date_separator:'/', minute_step: 15, placeholder: '予定時間'
+      .form__image
+        = f.label :image, class: 'form__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+    = f.submit 'Send', class: 'form__submit'
+    = link_to "マイプラント一覧に戻る", schedules_path, class: "#"
