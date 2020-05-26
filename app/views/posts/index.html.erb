@@ -29,28 +29,46 @@
 </div>
 --->
 <div class="container container-posts">
+  
+<%#   
   <div class="row options">
     <ul class="menu">
-      <div class="col-4 off-set2"><li><a href="#" id="about" class="menu_item active">新規投稿</a></li></div>
-      <div class="col-4 off-set2"><li><a href="#" id="service" class="menu_item">人気投稿</a><li></div>
+      <div class="col-sm-6 col-md-8 off-set2"><li><a href="#" id="about" class="menu_item active">新規投稿</a></li></div>
+      <div class="col-sm-6 col-md-8 off-set2"><li><a href="#" id="service" class="menu_item">人気投稿</a><li></div>
     </ul>
+  </div> %>
+
+  <div class="row options">
+      <div class="menu_item active col-6"><a href="#">新規投稿</a></div>
+      <div class="menu_item col-6"><a href="#">人気投稿投稿</a></div>
   </div>
 
-
+<!--
       <li><a href="#" id="about" class="menu_item active">新規投稿</a></li>
       <li><a href="#" id="service" class="menu_item">人気投稿</a></li>
-
+-->
   <div class="row search">
     <%= form_tag(search_posts_path, :method => "get", class: "post-search-form") do %>
       <%= text_field_tag :keyword %>
       <%= submit_tag "検索", :name => nil, class: "post-search-submit" %>
     <% end %>
   </div>
+  
+  <div class="row search">
+    <div class="search-form col-md-8 offset-md-2">
+      <%= form_tag(search_posts_path, :method => "get") do %>
+        <%= text_field_tag :keyword %>
+    </div>
+    <div class="search-submit col-md-4 offset-md-8">
+      <%= submit_tag "検索", :name => nil, class: "post-search-submit" %>
+    </div>
+    <% end %>
+  </div>
 
   <div class="swich show">
   <div class="row post-cards">
     <% @posts.each do |post| %>
-      <div class="col-sm-6 col-md-4 card-index">
+      <div class="col-lg-4 col-md-12  card-index">
         <div class="card">
           <div class="card-header">
             <%= link_to post.user.name, user_path(post.user.id) %>

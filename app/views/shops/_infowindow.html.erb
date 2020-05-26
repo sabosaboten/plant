@@ -1,4 +1,5 @@
 <div>
-  <%= link_to "#{shop.name}", shops_path %>
+  <%= "#{shop.name}"%>
   <%= link_to "投稿者詳細#{shop.user.name}", user_path(shop.user.id) %>
+  <%= "#{shop.text}"%>
 </div>
