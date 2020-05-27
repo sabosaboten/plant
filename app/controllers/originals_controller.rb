@@ -14,6 +14,15 @@ class OriginalsController < ApplicationController
     redirect_back(fallback_location: root_path) 
   end
 
+  def edit
+    @original = Original.find(params[:id])
+  end
+
+  def update
+    original = Original.find(params[:id])
+    original.update(post_params)
+    redirect_to events_path
+  end
 
   private
   def original_params

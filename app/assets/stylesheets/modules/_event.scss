@@ -1,6 +1,6 @@
 .event-top{
   width: 100%;
-  margin-top: 60px;
+  margin-top: 100px;
   border: solid 3px green;
 }
 
@@ -30,3 +30,29 @@
 .my-plant-calender{
   padding: 20px 20%;
 }
+
+
+///original-edit
+
+.edit-original{
+  margin-top: 200px;
+  width: 100%;
+  border: solid 5px green; 
+  padding: 2%;
+}
+
+
+.edit-original-box{
+  display: flex;
+  justify-content: center;
+}
+
+.post-image-icon{
+  height: 50px;
+  width: 50px;
+}
+
+.edit-original-each{
+  margin: 0 auto;
+}
+

@@ -1,0 +1,36 @@
+.event-top
+
+  %p#notice= notice
+
+  %p
+    %b Title:
+    = @event.title
+  %p
+    %b Description:
+    = @event.description
+  %p
+    %b Start date:
+    = @event.start_date
+  %p
+    %b End date:
+    = @event.end_date
+
+  = link_to 'Edit', edit_event_path(@event)
+  \|
+  = link_to 'Back', events_path
+
+
+<div class ="container edit-original">
+  <div class= "row plant-list">
+    <%=@event.title%>
+      <%= form_for @event do |f|%>
+      <div class ="field">
+        <p><%= f.date_select :date %></p>
+      </div>
+      <div class ="field">
+        <p><%= f.submit '水やり完了', class: "btn-outline-success"%></p>
+        <%= link_to "削除", event_path(@event.id), method: :delete %>
+      </div>
+    <% end %>
+  </div>
+</div>

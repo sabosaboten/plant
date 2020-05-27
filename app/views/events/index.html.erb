@@ -1,4 +1,46 @@
 <div class= "container event-top">
+    <div class= "row plant-registration">
+        <%= form_for [@original] do |f|%>
+          <a>保有している植物の追加</a>
+            <%= f.text_field :plantname, class: 'text_frecuency', placeholder: '植物名'%>
+              <%= f.label :image, class: 'form__image' do%>
+                <%= icon('fas', 'image', class: 'icon')%>
+                <%= f.file_field :image, class: 'hidden'%>
+                <%= f.submit '登録', class: 'form__submit'%>
+              <% end %>
+        <% end %>
+    </div>
+       <div class="row plant-cards">
+        <% @originals.each do |original| %>
+            <div class="col-lg-4 col-md-6 card-index">
+                <div class="card">
+                    <div class="card-header">
+                      <%= original.plantname %>
+                      <%= link_to "編集", edit_original_path(original.id) %>
+                      <%= link_to "削除", original_path(original.id), method: :delete %>
+                    </div>
+                    <div class="card-img-top">
+                      <%= image_tag original.image, :size =>'300x300', class: 'myplant-image' if original.image.present?%>
+                    </div>
+                    <div class="card-text">
+                      <%= form_for @event do |f|%>
+                        <%= f.hidden_field :title, :value => "#{original.plantname}"%>          
+                      <div class ="field">
+                        <p><%= f.date_select :date %></p>
+                      </div>
+                      <div class ="field">
+                        <p><%= f.submit '水やり完了', class: "btn-outline-success" %></p>
+                      </div>
+                      <%end%>
+                    </div>
+                </div>
+            </div>
+        <%end%>
+    </div>
+</div>
+
+<!---
+<div class= "container event-top">
   <div class= "row plant-registration">
     <%= form_for [@original] do |f|%>
       <%= f.text_field :plantname, class: 'text_frecuency', placeholder: '植物名'%>
@@ -14,6 +56,7 @@
       <div class= "plant-list-box">
         <div class=plant-list-box-header>
           <%= original.plantname %>
+          <%= link_to "編集", edit_original_path(original.id) %>
           <%= link_to "削除", original_path(original.id), method: :delete %>
         </div>
           
@@ -34,7 +77,7 @@
             <%# </div> %>
           
           <div class ="field">
-            <!---<p><%= f.label :date %></p>--->
+            <%#  <p><%= f.label :date %></p> 
             <p><%= f.date_select :date %></p>
           </div>
 
@@ -47,7 +90,7 @@
       <% end %> 
   </div>
 </div>
-
+--->
 
 <!--
 <% @originals.each do |original| %>

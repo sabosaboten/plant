@@ -1,0 +1,20 @@
+<div class ="container edit-original">
+  <%= form_for [@original] do |f|%>
+    <div class="row edit-original-box>">
+      <div class="edit-original-each col-md-4">
+        <p>植物名</p>
+        <%= f.text_field :plantname, class: 'edit-original-text', placeholder: '植物名'%>
+      </div>
+      <div class="edit-original-each col-md-4">
+        <p>写真</p>
+        <%= f.label :image, class: 'form__image' do%>
+          <%= icon('fas', 'camera', class: 'icon')%>
+          <%= f.file_field :image, class: 'hidden'%>
+      </div>
+      <div class="edit-original-each col-md-4">
+        <%= f.submit '登録', class: "btn-outline-success"%>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
