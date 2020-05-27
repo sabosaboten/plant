@@ -17,6 +17,8 @@ class UsersController < ApplicationController
     @posts = user.posts
     @users = User.all
     @likes = user.likes
+
+    @originals = user.originals
     
     @shops = @user.shops
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|

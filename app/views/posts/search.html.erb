@@ -1,3 +1,5 @@
+<!--
+
 <div class="main">
   <%= form_tag(search_posts_path, :method => "get", class: "search-form") do %>
    <%= text_field_tag :keyword %>
@@ -28,3 +30,66 @@
     <% end %>
   </div>
 </div>
+
+-->
+
+
+<div class="container container-posts">
+  
+
+  <div class="row preference">
+    <div class="prf active col-md-5 offset-md-1"><a href="#">新規投稿</a></div>
+    <div class="prf col-md-5 offset-md-1"><a href="#">人気投稿投稿</a></div>
+  </div>
+
+  <div class="row search">
+    <div class="sform col-md-8 offset-md-1">
+      <%= form_tag(search_posts_path, :method => "get") do %>
+        <%= text_field_tag :keyword %>
+    </div>
+    <div class="ssubmit col-md-2">
+      <%= submit_tag "検索", :name => nil, class: "sbtn" %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="swich show">
+  <div class="row post-cards">
+    <% @posts.each do |post| %>
+      <div class="col-lg-4 col-md-6 card-index">
+        <div class="card">
+          <div class="card-header">
+            <%= link_to post.user.name, user_path(post.user.id) %>
+          </div>
+          <div class="card-img-top">
+            <%-if post.image.present?%>
+              <%= link_to post_path(post.id) do %>
+                <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="card-text">
+            <%="コメント#{post.comments.count}件"%>
+            <%="いいね！#{post.likes.count}件"%>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+<% if user_signed_in? %>
+  <div class="d-none d-md-block">
+    <%= link_to icon("fas", "plus-circle") + ' 新規投稿', new_post_path, class: 'new-post-btn--pc' %>
+  </div>
+  <div class="d-block d-md-none">
+    <%= link_to icon("fas", "plus"), new_post_path, class: 'new-post-btn--sp' %>
+  </div>
+<% end %>
+
+

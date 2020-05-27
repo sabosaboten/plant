@@ -256,7 +256,7 @@
       </li>
       <% if user_signed_in? %>
       <li class="nav-item dropdown active">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">マイページ</a>
+        <a class="nav-link dropdown-toggle text-white" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=current_user.name%></a>
         <div class="dropdown-menu" aria-labelledby="dropdown05">
           <a class="dropdown-item" <%= link_to "マイポスト", user_path(current_user.id) %></a>
           <a class="dropdown-item" <%= link_to "マイプラント", events_path%></a>

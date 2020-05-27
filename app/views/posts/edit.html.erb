@@ -9,7 +9,7 @@
           = f.file_field :image, class: 'hidden'
     = f.submit 'Send', class: 'form__submit' %>
 
-
+<!--
 
 <div class ="post-box">
   <%= form_for [@post] do |f|%>
@@ -21,4 +21,35 @@
     <% end %>
   <% end %>
 </div>
+
+-->
+
+
+<div class ="container newpost">
+  <%= form_for [@post] do |f|%>
+    <div class="row newpost-box>">
+      <div class="newpost-each col-md-4">
+        <p>記事</p>
+        <%= f.text_area :text, class: 'newpost-text', rows: 10, cols: 10, placeholder: '記事'%>
+      </div>
+      <div class="newpost-each col-md-4">
+        <p>写真</p>
+          <%= f.label :image, class: 'newpost_image' do%>
+            <%= icon('fas', 'camera',  class: 'newpost-icon')%>
+            <%= f.file_field :image, class: 'hidden'%>
+          <% end %>
+      </div>
+      <div class="newpost-each col-md-4">
+        <%= f.submit '投稿する', class: "btn-outline-success"%>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
 

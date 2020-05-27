@@ -2,7 +2,7 @@
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 
-
+<!---
 <div class= "mypage-main">
   <div class= "mypage-left">
     <div class="mypage-contents-box">
@@ -91,21 +91,10 @@
   </div>
 </div>
 
+--->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!---
 <% if user_signed_in? %>
   <h1>ユーザー一覧画面</h1>
   <% @users.each do |user| %>
@@ -159,20 +148,206 @@
     </p>
   <% end %>
 
+--->
 
 <!---
-<div id="map" style="width: 800px; height: 400px;"></div>
-
-<script>
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(<%= raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
-</script>
-
 
 <div id="calendar"></div>
 
 --->
+
+
+
+<div class ="container user-top">
+  <div class="row user-info">
+    <div class="user-info-box-base col-4">
+      名前
+    </div>
+    <div class="user-info-box-plant col-8">
+        <% if user_signed_in? %>
+          <p>
+            <% if current_user.following?(@user) %>
+              <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST %>
+            <% else %>
+              <%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
+            <% end %>
+          </p>
+        <% end %>
+    </div>
+  </div>
+  
+  <div class="row user-options">
+    <div class="user-options-post mypage-options avtive col-md-2 col-4">
+      <a href="#">投稿したポスト</a>
+    </div>
+    <div class="user-options-like mypage-options col-md-2 col-4">
+      <a href="#">いいね</a>
+    </div>    
+    <div class="user-options-follower mypage-options col-md-2 col-4">
+      <a href="#">フォロワー</a>
+    </div>
+    <div class="user-options-bollowed mypage-options col-md-2 col-4">
+      <a href="#">フォロー</a>
+    </div>
+    <div class="user-options-shop mypage-options col-md-2 col-4">
+      <a href="#">観葉植物店</a>
+    </div>
+    <div class="user-options-plant mypage-options col-md-2 col-4">
+      <a href="#">所有観葉植物</a>
+    </div>
+  </div>
+
+  <div class="swich show">
+    <div class="row post-cards">
+      <% @posts.each do |post| %>
+        <div class="col-lg-4 col-md-2 card-index">
+          <div class="card">
+            <div class="card-header">
+              <%= link_to post.user.name, user_path(post.user.id) %>
+              <% if user_signed_in? && current_user.id == post.user_id %> 
+              <%= link_to "削除", post_path(post.id), method: :delete %>
+                <%= link_to "編集", edit_post_path(post.id) %>  
+              <% end %>
+            </div>
+            <div class="card-img-top">
+              <%-if post.image.present?%>
+                <%= link_to post_path(post.id) do %>
+                  <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="card-text">
+              <%="コメント#{post.comments.count}件"%>
+              <%="いいね！#{post.likes.count}件"%>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+
+  
+  <div class="swich">
+    <div class="row user-like">
+     <% @user.liked_posts.where.not(id: current_user.id).each do |post|  %>
+        <div class="col-lg-4 col-md-2 card-index">
+          <div class="card">
+            <div class="card-header">
+              <%= link_to post.user.name, user_path(post.user.id) %>
+            </div>
+            <div class="card-img-top">
+              <%-if post.image.present?%>
+                <%= link_to post_path(post.id) do %>
+                  <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="card-text">
+              <%="コメント#{post.comments.count}件"%>
+              <%="いいね！#{post.likes.count}件"%>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+  
+  <div class="swich">
+    <div class="row user-follower">
+        <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+          <div class="col-12">
+            <p>
+              <%= link_to "#{user.name}", user_path(user) %>
+              <% if current_user.following?(user) %>
+                <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+              <% else %>
+                <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+              <% end %>
+            </p>
+          </div>
+        <% end %>
+    </div>
+  </div>
+  
+  <div class="swich">
+    <div class="row user-followed">
+        <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+          <div class="col-12">
+          <p>
+              <%= link_to "#{user.name}", user_path(user) %>
+              <% if current_user.following?(user) %>
+                <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+              <% else %>
+                <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+              <% end %>
+            </p>
+          </div>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="swich">
+    <div class="row user-shop">
+      <div id="map" style="width: 800px; height: 400px;" class="myapage-shopmap col-12">>
+      </div>
+      <script>
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        });
+      </script>
+      <div class="myapage-shoplist">
+      </div>
+    </div>
+  </div>
+
+  <div class="swich">
+    <div class="row user-plant">
+        <% @originals.each do |original| %>
+        <div class="col-lg-4 col-md-2 card-index">
+          <div class="card">
+            <div class="card-header">
+              <%= original.plantname %>
+            </div>
+            <div class="card-img-top">
+              <%= image_tag original.image, :size =>'298x298', class: 'myplant-image' if original.image.present?%>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+<!--
+
+   <% @user.liked_posts.where.not(id: current_user.id).each do |post|  %>
+      <div class="col-lg-4 col-md-2 card-index">
+        <div class="card">
+          <div class="card-header">
+            <%= link_to post.user.name, user_path(post.user.id) %>
+          </div>
+          <div class="card-img-top">
+            <%-if post.image.present?%>
+              <%= link_to post_path(post.id) do %>
+                <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="card-text">
+            <%="コメント#{post.comments.count}件"%>
+            <%="いいね！#{post.likes.count}件"%>
+          </div>
+        </div>
+      </div>
+    <%end%>
+
+    -->

@@ -23,6 +23,23 @@ class ShopsController < ApplicationController
     redirect_to shops_path
   end
 
+  def edit
+    @shop = Shop.find(params[:id])
+  end
+
+  def update
+    shop = Shop.find(params[:id])
+    shop.update(post_params)
+    redirect_to shops_path
+  end
+
+
+  def destroy
+    shop = Shop.find(params[:id])
+    shop.destroy
+    redirect_back(fallback_location: shops_path) 
+  end
+
   private
   def shop_params
     params.require(:shop).permit(:name, :address, :latitude, :longitude, :text).merge(user_id: current_user.id)

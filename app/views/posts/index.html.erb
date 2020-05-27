@@ -104,9 +104,6 @@
             <%="コメント#{post.comments.count}件"%>
             <%="いいね！#{post.likes.count}件"%>
           </div>
-          <div class="card-footer">
-            <a><%= post.text %></a>
-          </div>
         </div>
       </div>
     <%end%>
@@ -115,24 +112,28 @@
   <div class="swich">
   <div class="row post-cards">
     <% @all_ranks.each do |post| %>
-      <div class="col-sm-6 col-md-4 card-index">
+       <div class="col-lg-4 col-md-6 card-index">
         <div class="card">
           <div class="card-header">
             <%= link_to post.user.name, user_path(post.user.id) %>
           </div>
-          <div class="card-body">
+          <div class="card-img-top">
             <%-if post.image.present?%>
               <%= link_to post_path(post.id) do %>
-                <%= image_tag post.image, :size =>'275x275', class: 'post-img' if post.image.present?%>
+                <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
               <% end %>
             <% end %>
           </div>
-          <div class="card-info">
+          <!---<div class="card-body">
+            <%-if post.image.present?%>
+              <%= link_to post_path(post.id) do %>
+                <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
+              <% end %>
+            <% end %>
+          </div> --->
+          <div class="card-text">
             <%="コメント#{post.comments.count}件"%>
             <%="いいね！#{post.likes.count}件"%>
-          </div>
-          <div class="card-text">
-            <a><%= simple_format(post.text) %></a>
           </div>
         </div>
       </div>

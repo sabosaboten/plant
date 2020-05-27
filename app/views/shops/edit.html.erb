@@ -1,34 +1,12 @@
-<!---
-<div class="shopping-main">
-   <div class="shopping-map">
-
-      <%= form_for(@shop) do |f| %>
-      <h4>名前</h4>
-      <%= f.text_field :name, placeholder: "名前" %>
-      <h4>住所</h4>
-      <%= f.text_field :address, placeholder: "住所" %>
-      <h4>ポイント</h4>
-      <%= f.text_field :text, placeholder: "ポイント" %>
-      
-      <%= f.submit "登録する" %>
-      <% end %>
-   </div> 
-</div>
-
-   <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    <div id="map"></div>
-
---->
-
 <div class ="container shop-newpost">
     <div class="row newpost-box1">
       <div class="newpost-box1-each1 col-12">
-        <h1>お店を共有</h1>
+        <h1>お店情報を更新</h1>
       </div>
     </div>
     <div class="row newpost-box2>">
       <div class="newpost-box2-each1 col-md-4">
-          <%= form_for(@shop) do |f| %>
+          <%= form_for [@shop] do |f| %>
           <h5>観葉植物店の名前</h5>
           <%= f.text_field :name, placeholder: "店名" %>
           <h5>住所</h5>
@@ -48,15 +26,6 @@
       </div>   
     </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 
     <script>

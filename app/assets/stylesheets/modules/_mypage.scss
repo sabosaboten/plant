@@ -1,70 +1,77 @@
-.mypage-main{
-  padding-top: 90px;
-  width: 90vw;
-  height: calc(100vh) ;
-  background-color: yellowgreen;
-  margin: 0 auto;
-  display: flex;
-}
+// .mypage-main{
+//   padding-top: 90px;
+//   width: 90vw;
+//   height: calc(100vh) ;
+//   background-color: yellowgreen;
+//   margin: 0 auto;
+//   display: flex;
+// }
 
-.mypage-left{
-  width: calc(90vw/2);
-  background-color: yellow;
-  display: flex;
-  overflow: scroll;
-}
-
-
-.mypage-contents-box{
-  flex-wrap:wrap;
-  display: flex;
-  // justify-content: space-between;
-  // overflow: scroll;
-  padding: 5px 10px 5px 10px;
-}
-
-.mypage-content{
-  width: 250px;
-  height: 300px;
-  background-color: blue;
-  margin: 10px;
-}
-
-.mypage-content-header{
-  height: 50px;
-  background-color: red;
-  width: 100%;
-}
-
-.mypage-content-main{
-  width: 100%;
-  height: 300px;
-  background-color: rebeccapurple;
-}
-
-.mypage-content-main-text{
-  width: 100%;
-  height: 50px;
-  background-color: yellow;
-}
-
-.mypage-content-main-image{
-  width: 100%;
-  height: 200px;
-  background-color: cornflowerblue;
-}
-
-.mypage-content-footer{
-  background-color: darkgray;
-  width: 100%;
-  height: 100px;
-}
+// .mypage-left{
+//   width: calc(90vw/2);
+//   background-color: yellow;
+//   display: flex;
+//   overflow: scroll;
+// }
 
 
-.mypage-right{
-  width: calc(90vw/2);
-  background-color: violet;
-}
+// .mypage-contents-box{
+//   flex-wrap:wrap;
+//   display: flex;
+//   // justify-content: space-between;
+//   // overflow: scroll;
+//   padding: 5px 10px 5px 10px;
+// }
+
+// .mypage-content{
+//   width: 250px;
+//   height: 300px;
+//   background-color: blue;
+//   margin: 10px;
+// }
+
+// .mypage-content-header{
+//   height: 50px;
+//   background-color: red;
+//   width: 100%;
+// }
+
+// .mypage-content-main{
+//   width: 100%;
+//   height: 300px;
+//   background-color: rebeccapurple;
+// }
+
+// .mypage-content-main-text{
+//   width: 100%;
+//   height: 50px;
+//   background-color: yellow;
+// }
+
+// .mypage-content-main-image{
+//   width: 100%;
+//   height: 200px;
+//   background-color: cornflowerblue;
+// }
+
+// .mypage-content-footer{
+//   background-color: darkgray;
+//   width: 100%;
+//   height: 100px;
+// }
+
+
+// .mypage-right{
+//   width: calc(90vw/2);
+//   background-color: violet;
+// }
+
+
+
+
+
+
+
 
 // .follower-box{
 //   height: 100vh;
@@ -139,4 +146,56 @@
   height: 100%;
   background-color: lime;
   display: none;
+}
+
+
+
+///////更新
+
+
+.user-top{
+  margin-top: 100px 0;
+  padding-top: 100px;
+}
+
+.user-info-box-base{
+  background-color: blue;
+  height: 100px;
+}
+
+.user-info-box-plant{
+  background-color: yellow;
+  height: 100px;
+}
+
+
+.mypage-options.active{
+  display: inline-block;
+  padding: 15px;
+  border: 5px solid #7BC61A;
+  background: green;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  // width: 200px;
+  // margin: 0 20px;
+  text-align: center;  
+}
+
+.mypage-options {
+  display: inline-block;
+  padding: 15px;
+  border: 5px solid #7BC61A;
+  color:#7BC61A;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  // width: 200px;
+  // margin: 0 20px;
+  text-align: center;
+}
+
+.user-options{
+  margin: 20px 0;
 }

@@ -1,6 +1,33 @@
-.post-box{
-  margin-top: 90px;
-  height: 100px;
+.newpost{
+  margin-top: 200px;
+  width: 100%;
+  border: solid 5px green; 
+  padding: 2%;
+}
+
+
+///////投稿ページ
+
+
+.newpost-text{
   width: 200px;
-  background-color: black;
+  height: 200px;
+}
+
+.newpost-box{
+  display: flex;
+  justify-content: center;
+}
+
+// .hidden{
+//   display: none;
+// }
+
+.post-image-icon{
+  height: 50px;
+  width: 50px;
+}
+
+.newpost-each{
+  margin: 0 auto;
 }
