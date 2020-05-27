@@ -1,6 +1,6 @@
 $(function()  {
   // タブのDOM要素を取得し、変数で定義
-  let tabs = $(".menu_item");
+  let tabs = $(".prf");
 
   // クラスの切り替えをtabSwitch関数で定義
   function tabSwitch() {

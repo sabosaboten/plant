@@ -16,13 +16,13 @@
   // display: none;
 }
 
-.options{
-  margin: 0 auto;
-  height: 100px;
-  // background-color: lightcoral;
-  display: flex;
-  justify-content: space-between;
-}
+// .options{
+//   margin: 0 auto;
+//   height: 100px;
+//   // background-color: lightcoral;
+//   display: flex;
+//   justify-content: space-between;
+// }
 
 .menu{
   display: flex;
@@ -69,15 +69,15 @@
 }
 
 
-.post-search-submit{
-  background-color: saddlebrown;
-  display: flex;
-  justify-content: center;
-  border-radius: 50px;
-  width: 100px;
-  height: 50px;
-  color: white;
-}
+// .post-search-submit{
+//   background-color: saddlebrown;
+//   display: flex;
+//   justify-content: center;
+//   border-radius: 50px;
+//   width: 100px;
+//   height: 50px;
+//   color: white;
+// }
 
 .post-search-form{
   margin: 0 auto;
@@ -87,14 +87,20 @@
   margin: 20px 0;
 }
 
-#keyword{
-  width: 500px;
-  height: 50px;
-  border: solid 2px saddlebrown;
-  font-size: 20px;
-  border-radius: 50px;
-  padding-left: 15px;
-}
+// #keyword{
+//   width: 500px;
+//   height: 50px;
+//   border: solid 2px saddlebrown;
+//   font-size: 20px;
+//   border-radius: 50px;
+//   padding-left: 15px;
+// }
+
+
+
+
+
+
 
 .swich.show{
   display: block;
@@ -199,16 +205,9 @@
   margin-bottom: 10px;
 }
 
-.card-index{
-  border: solid 2px green;
-  border-radius: 60px;
-}
-
-.container-posts{
-  margin-top: 80px;
-}
 
 
+/* 新規投稿ボタン */
 .new-post-btn {
   &--pc {
     position: fixed;
@@ -217,7 +216,7 @@
     background-color: green;
     color: white;
     text-align: center;
-    bottom: 32px;
+    bottom: 100px;
     right: 32px;
     width: 160px;
     height: 160px;
@@ -236,8 +235,8 @@
     background-color: green;
     color: white;
     text-align: center;
-    bottom: 16px;
-    right: 16px;
+    bottom: 125px;
+    right: 10px;
     width: 80px;
     height: 80px;
     font-size: 38px;
@@ -248,4 +247,121 @@
       color: white;
     }
   }
+}
+
+// .card{
+// }
+
+// .card-index {
+//   margin: 14px 0;
+// }
+
+// .post-cards {
+//   gap: 20px;
+//   padding: 0 20px;
+//   margin-bottom: 5px;
+// }
+
+.container-posts{
+  padding-top: 100px;
+}
+
+
+.post-cards{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.card{
+  width: 300px;
+  height: 100%;
+}
+
+.card-img-top{
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  width: 300px;
+}
+
+
+// .post-img{
+//   padding: 0 5px;
+// }
+
+.container{
+  margin: 0 auto;
+}
+
+.card-index{
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+  height: auto;
+}
+
+
+.reference{
+  // display: flex;
+}
+
+.prf.active{
+  display: inline-block;
+  padding: 15px;
+  border: 5px solid #7BC61A;
+  background: green;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  width: 200px;
+  // margin: 0 20px;
+  text-align: center;
+  // margin: 0 auto;
+}
+
+.prf{
+  display: inline-block;
+  padding: 15px;
+  border: 5px solid #7BC61A;
+  color:#7BC61A;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  width: 200px;
+  // margin: 0 20px;
+  text-align: center;
+  // margin: 0 auto;
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#keyword{
+  width: 100%;
+  height: 50px;
+  border: solid 3px saddlebrown;
+  font-size: 20px;
+  border-radius: 50px;
+  padding-left: 15px;
+  margin-bottom: 7px;
+  margin-top: 20px;
+}
+
+.sbtn{
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  // padding: 30px;
+  border:solid 5px saddlebrown;
+  background-color: wheat;
+  display: flex;
+  justify-content: center;
+  border-radius: 50px;
+  margin-bottom: 7px;
+  margin-top: 20px;;
 }
