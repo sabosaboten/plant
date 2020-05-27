@@ -72,3 +72,5 @@ gem 'momentjs-rails'
 
 #gem 'bootstrap-sass'
 gem 'bootstrap', '~> 4.5.0'
+
+gem 'kaminari'

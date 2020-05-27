@@ -29,4 +29,6 @@ Rails.application.routes.draw do
 
   resources :originals
 
+  post '/homes/guest_sign_in', to: 'homes#new_guest'
+
 end

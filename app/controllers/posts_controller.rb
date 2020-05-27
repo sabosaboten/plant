@@ -43,9 +43,11 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :create]
 
   def index
-    @posts = Post.includes(:user).order("created_at DESC")
-    @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
+    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(10)
+    @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').page(params[:page]).per(10).limit(10).pluck(:post_id))
   end
+
+      # @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
 
   def show
     @post = Post.find(params[:id])
