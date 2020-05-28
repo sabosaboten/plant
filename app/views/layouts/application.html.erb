@@ -233,6 +233,7 @@
       <% if user_signed_in? %>
       <li class="nav-item">
         <a class="nav-link text-white" <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+        <a class="nav-link text-white" <%= link_to "アカウントを編集", edit_user_path(current_user)%></a>
       </li>
       <% else %>
       <li class="nav-item active">
@@ -280,6 +281,7 @@
     
   </body>
 </html>
+
 
 <%# 
     <% meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/ %>
