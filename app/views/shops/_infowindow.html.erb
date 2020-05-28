@@ -14,7 +14,7 @@
 
 <table class="table">
   <tr><th>Name</th><th><%= "#{shop.name}"%></th></tr>
-  <tr><td>User</td><td><%= link_to "投稿者詳細#{shop.user.name}", user_path(shop.user.id) %></td></tr>
+  <tr><td>User</td><td><%= link_to "#{shop.user.name}", user_path(shop.user.id) %></td></tr>
   <tr><td>Comment</td><td> <%= "#{shop.text}"%></td></tr>
   <% if user_signed_in? && current_user.id == shop.user_id %> 
   <tr><td>Changes</td><td><%= link_to "削除", shop_path(shop.id), method: :delete %> / <%= link_to "編集", edit_shop_path(shop.id) %></td></tr>

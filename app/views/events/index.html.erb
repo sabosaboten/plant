@@ -6,21 +6,23 @@
               <%= f.label :image, class: 'form__image' do%>
                 <%= icon('fas', 'image', class: 'icon')%>
                 <%= f.file_field :image, class: 'hidden'%>
-                <%= f.submit '登録', class: 'form__submit'%>
+                <%= f.submit '登録', class: 'form__submit btn-outline-success'%>
               <% end %>
         <% end %>
     </div>
        <div class="row plant-cards">
         <% @originals.each do |original| %>
-            <div class="col-lg-4 col-md-6 card-index">
-                <div class="card">
+            <div class="col-lg-3 col-md-4 col-xs-6 card-index">
+                <div class="card-event">
                     <div class="card-header">
                       <%= original.plantname %>
+                    </div>
+                    <div class="card-header list">
                       <%= link_to "編集", edit_original_path(original.id) %>
                       <%= link_to "削除", original_path(original.id), method: :delete %>
                     </div>
-                    <div class="card-img-top">
-                      <%= image_tag original.image, :size =>'300x300', class: 'myplant-image' if original.image.present?%>
+                    <div class="card-img-top-event">
+                      <%= image_tag original.image, :size =>'200x200', class: 'myplant-image' if original.image.present?%>
                     </div>
                     <div class="card-text">
                       <%= form_for @event do |f|%>
