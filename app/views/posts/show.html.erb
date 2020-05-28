@@ -1,6 +1,4 @@
-
-
-
+<!--
 
 <div class="show-main">
   <div class="show-left">
@@ -60,6 +58,74 @@
             </div>
           <% end %>
         </div>
+    </div>
+  </div>
+</div>
+--->
+<div class="container container-postshow">
+  <div class= "row postshow-box">
+    <div class="col-lg-6 mt-3 postshow-left">
+        <div class="card postshow-card">
+          <div class="card-header">
+            <%= link_to @post.user.name, user_path(@post.user.id) %>
+            <% if user_signed_in? && current_user.id == @post.user_id %> 
+              <%= link_to "削除", post_path(@post.id), method: :delete %>
+              <%= link_to "編集", edit_post_path(@post.id) %>  
+            <% end %>
+          </div>
+          <div class="card-img-top-postshow">
+            <%-if @post.image.present?%>
+              <%= image_tag @post.image.url, :size =>'450x450', class: 'lower-message__image' if @post.image.present?%>
+            <%end%>
+          </div>
+          <div class="card-text">
+            <%="コメント#{@post.comments.count}件"%>
+            <%="いいね！#{@post.likes.count}件"%>
+            <% if current_user.likes.find_by(post_id: @post.id) %>
+              <%= link_to "いいね解除", post_like_path(@post), method: :delete  %>
+            <% else %>
+              <%= link_to "いいね", post_likes_path(@post), method: :post %>
+            <% end %>
+          </div>
+          <div class="card-footer">
+            <%= @post.text%>        
+          </div>
+        </div>
+    </div>
+    <div class="col-lg-6 mt-3 postshow-right">
+
+
+      <div class="postshow-comment-create">
+        <p class="postshow-comment-create-header">
+          コメントを投稿
+        </p>
+        <div class="postshow-comment-create-main">
+          <%= form_for [@post, @comment] do |f| %>
+            <%= f.text_area :message, class: 'post-show-comment-text', placeholder: 'コメントを記入'%>
+            <%= f.submit 'コメントを送信', class: 'comment-submit-btn btn-outline-success'%>
+          <% end %>
+        </div>
+      </div>
+      <div class="postshow-comment-header mt-2">
+        <p>コメント一覧</p>
+      </div> 
+      <div class="postshow-comment-main">
+            <% @comments.each do |comment| %>
+              <div class="postshow-comment-box">
+                  <div class="comment-content-name">
+                    <%= comment.user.name %>
+                  </div>
+                  <div class="comment-content-name">
+                    <%= comment.message %>
+                  </div>
+                  <% if user_signed_in? && current_user.id == comment.user_id %>
+                  <div class="comment-content-change">
+                    <%= link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete  %>
+                  </div>
+                  <% end %>
+              </div>
+            <% end %>
+      </div>
     </div>
   </div>
 </div>

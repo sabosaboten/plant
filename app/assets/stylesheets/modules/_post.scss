@@ -67,3 +67,60 @@ textarea {
 .comment-box{
   display: flex;
 }
+
+
+.container-postshow{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.postshow-left{
+  // background-color: blue;
+}
+
+.postshow-right{
+  // background-color: yellow;
+  height: 100%;
+}
+
+.postshow-card{
+  width: 450px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.card-img-top-postshow{
+  display: flex;
+  justify-content: center;
+  height: 450px;
+  width: 450px;
+}
+
+.post-show-comment-text{
+  height: 100px;
+  width: 90%;
+  border: solid 2px green;
+  border-radius: 30px;
+  padding: 0 20px;
+}
+
+.postshow-comment-header{
+  margin-top: 10px;
+  border-bottom: solid 2px green;
+  font-size: 20px;
+  text-align: center;
+}
+
+.postshow-comment-box{
+  border-bottom: dotted 2px green;
+}
+
+.postshow-comment-create{
+  border: solid 3px green;
+  border-radius: 30px;
+}
+
+.postshow-comment-create{
+  text-align: center;
+  padding: 15px;
+}

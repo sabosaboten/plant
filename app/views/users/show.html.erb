@@ -200,7 +200,7 @@
   <div class="swich show">
     <div class="row post-cards">
       <% @posts.each do |post| %>
-        <div class="col-lg-4 col-md-2 card-index">
+        <div class="col-lg-4 col-md-6 card-index">
           <div class="card">
             <div class="card-header">
               <%= link_to post.user.name, user_path(post.user.id) %>

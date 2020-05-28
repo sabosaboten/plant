@@ -233,11 +233,13 @@
       <% if user_signed_in? %>
       <li class="nav-item">
         <a class="nav-link text-white" <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link text-white" <%= link_to "アカウントを編集", edit_user_path(current_user)%></a>
       </li>
       <% else %>
       <li class="nav-item active">
-        <a class="nav-link text-white"  <%= link_to "ログイン", new_user_session_path, :class => 'post' %></a>
+        <a class="nav-link text-white"  <%= link_to "ログイン", new_user_session_path, :class => 'post' %><%= link_to "新規登録", new_user_registration_path, :class => 'post' %></a>
         <a class="nav-link text-white" <%= link_to "新規登録", new_user_registration_path, :class => 'post' %></a>
       </li>
       <% end %>
@@ -269,15 +271,15 @@
 </nav>
 </div>
 
-    </header>
+</header>
 
-    <%= yield %>
+<%= yield %>
     
-    <footer class="footer">
-      <p>
-        Copyright Plant 2020.
-      </p>
-    </footer>
+<footer class="footer bg-success">
+  <p>
+    Copyright Plant 2020.
+  </p>
+</footer>
     
   </body>
 </html>

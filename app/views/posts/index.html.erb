@@ -29,7 +29,7 @@
 </div>
 --->
 
-<div class="container container-posts">
+<div class="container container-posts mb-3">
   
 <%#   
   <div class="row options">
@@ -55,7 +55,7 @@
     <div class="prf col-md-5 offset-md-1"><a href="#">人気投稿投稿</a></div>
   </div> %>
 
-  <div class="row preference">
+  <div class="row preference pt-4">
     <div class="col-1"></div>
     <div class="prf active col-5"><a href="#">新規投稿</a></div>
     <div class="prf col-5"><a href="#">人気投稿投稿</a></div>
@@ -75,14 +75,17 @@
     <% end %>
   </div>
 -->
-  <div class="row search">
-    <div class="sform col-md-8 offset-md-1">
+  <div class="row search pt-2">
+    <div class="col-1"></div>
+    <div class="sform col-md-7">
       <%= form_tag(search_posts_path, :method => "get") do %>
         <%= text_field_tag :keyword %>
     </div>
+    <%# <div class="col-1"></div> %>
     <div class="ssubmit col-md-2">
       <%= submit_tag "検索", :name => nil, class: "sbtn" %>
     </div>
+    <div class="col-2"></div>
     <% end %>
   </div>
 
