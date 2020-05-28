@@ -89,17 +89,6 @@ ActiveRecord::Schema.define(version: 20200524041835) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "schedules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "image"
-    t.string   "plantname",  null: false
-    t.string   "frecuency",  null: false
-    t.date     "date",       null: false
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_schedules_on_user_id", using: :btree
-  end
-
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "address"
@@ -136,6 +125,5 @@ ActiveRecord::Schema.define(version: 20200524041835) do
   add_foreign_key "maps", "users"
   add_foreign_key "originals", "users"
   add_foreign_key "posts", "users"
-  add_foreign_key "schedules", "users"
   add_foreign_key "shops", "users"
 end
