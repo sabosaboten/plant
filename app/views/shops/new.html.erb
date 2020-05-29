@@ -21,12 +21,13 @@
 --->
 
 <div class ="container shop-newpost">
-    <div class="row newpost-box1">
-      <div class="newpost-box1-each1 col-12">
-        <h1>お店を共有</h1>
-      </div>
+    <div class="row newshop-title-box">
+          <div class="newpost-each newshop-title col-12 text center">
+            <img src="/assets/shop.png/", width="50" height="50", class="post-icon">
+            <a>観葉植物店を共有</a>
+          </div>
     </div>
-    <div class="row newpost-box2>">
+    <div class="row newpost-box2 mt-5">
       <div class="newpost-box2-each1 col-md-4">
           <%= form_for(@shop) do |f| %>
           <h5>観葉植物店の名前</h5>
@@ -36,7 +37,7 @@
           <%= f.text_field :address, placeholder: "住所を挿入" %>
           <h5>おすすめポイント</h5>
           <%= f.text_area :text, placeholder: "ex.~が置いてある", class: "plantshop-textform" %>
-          <div class="shop-registration-btn">
+          <div class="shop-registration-btn mt-5">
             <%= f.submit "お店を登録", class: "btn-outline-success" %>
           </div>
           <% end %>

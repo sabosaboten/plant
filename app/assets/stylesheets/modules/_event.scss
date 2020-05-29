@@ -34,40 +34,46 @@
 
 ///original-edit
 
-.edit-original{
-  margin-top: 200px;
+.container-original{
+  margin-top: 150px;
   width: 100%;
-  border: solid 5px green; 
   padding: 2%;
 }
 
 
-.edit-original-box{
-  display: flex;
-  justify-content: center;
+.original-title{
+  text-align: center;
 }
 
-.post-image-icon{
-  height: 50px;
-  width: 50px;
+.original-pic-box {
+  text-align: center;
 }
 
-.edit-original-each{
-  margin: 0 auto;
+.original-name{
+  text-align: center;
+}
+
+.original-submit{
   text-align: center;
 }
 
 
-
-.card-img-top-event{
-  display: flex;
-  justify-content: center;
-  height: 200px;
-  width: 200px;
+#img2{
+  border: inset 10px gray;
+  background-image: url("pic.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  border-radius: 30px;
 }
 
-.card-event{
-  width: 200px;
-  height: 100%;
-  text-align: center;
+#img2:hover{
+  background-color: lightgoldenrodyellow; 
+  cursor: pointer;
+}
+
+
+.original-title {
+  color: green;
+  font-size: 30px;
 }

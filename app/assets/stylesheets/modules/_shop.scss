@@ -28,7 +28,7 @@
 
 .shop-newpost{
   margin-top: 150px;
-  border: solid 3px green;
+  // border: solid 3px green;
   // padding: 20px 35px 20px 20px;
   border-radius: 20px;
   margin-bottom: 60px;
@@ -49,11 +49,6 @@
 }
 
 
-// .newpost-searchbox{
-//   height: 50px;
-//   width: 100%;
-//   background-color: black;
-// }
 
 .controls{
   margin-top: 10px;
@@ -75,4 +70,9 @@
 
 .new-shop{
   padding-bottom: 20px;
+}
+
+.newshop-title{
+  color: green;
+  font-size: 30px;
 }

@@ -2,7 +2,7 @@
   <div class="row original-title-box">
     <div class="original-title col-12 text center">
       <img src="/assets/watering.png/", width="70" height="70", class="post-icon">
-      <a> 情報を更新</a>
+      <a> 自分の観葉植物を登録</a>
     </div>
   </div>
   <%= form_for [@original] do |f|%>
@@ -17,11 +17,11 @@
           <% end %> 
       </div>
       <div class="original-name col-12 mt-2">
-        <p>植物名</p>
+        <p>観葉植物名</p>
         <%= f.text_field :plantname, class: 'edit-original-text', placeholder: '植物名'%>
       </div>
       <div class="original-submit col-12 mt-3">
-        <%= f.submit '投稿', class: "btn-outline-success"%>
+        <%= f.submit '登録', class: "btn-outline-success"%>
       </div>
     </div>
   <% end %>  

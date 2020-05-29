@@ -1,14 +1,6 @@
 <div class= "container event-top">
     <div class= "row plant-registration">
-        <%= form_for [@original] do |f|%>
-          <a>保有している植物の追加</a>
-            <%= f.text_field :plantname, class: 'text_frecuency', placeholder: '植物名'%>
-              <%= f.label :image, class: 'form__image' do%>
-                <%= icon('fas', 'image', class: 'icon')%>
-                <%= f.file_field :image, class: 'hidden'%>
-                <%= f.submit '登録', class: 'form__submit btn-outline-success'%>
-              <% end %>
-        <% end %>
+        <button type="button" class="btn btn-success"><%= link_to "観葉植物の追加", new_original_path %></button>
     </div>
        <div class="row plant-cards">
         <% @originals.each do |original| %>

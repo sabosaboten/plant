@@ -8,6 +8,11 @@ class OriginalsController < ApplicationController
     end
   end
 
+  def new
+    @original = Original.new
+  end
+
+
   def destroy
     original = Original.find(params[:id])
     original.destroy

@@ -1,8 +1,7 @@
 .newpost{
-  margin-top: 200px;
-  width: 100%;
-  border: solid 5px green; 
+  margin-top: 100px;
   padding: 2%;
+  margin-bottom: 60px;
 }
 
 
@@ -10,14 +9,31 @@
 
 
 .newpost-text{
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 100px;
+  border-radius: 10px;
+  border: solid 2px gray;
 }
 
-.newpost-box{
-  display: flex;
-  justify-content: center;
+// .newpost-title-box p{
+//   height: 50px;
+//   font-size: 30px;
+// }
+
+// .new_post{
+//   display: flex;
+//   justify-content: center;
+//   border: solid 5px green;
+//   border-radius: 50px;
+// }
+
+.newpost-main-box{
+  // border: solid 4px green;
+  padding: 20px 0;
+  border-radius: 30px;
+  margin: 0 auto;
 }
+
 
 .hidden{
   display: none;
@@ -54,26 +70,43 @@
   height: 390px;
   border-radius: 20px;
   margin: 0 auto;
-  color: white;
+  // color: white;
 }
 
 .preview-box{
-  height: 400px;
-  width: 400px;
-  border: dotted 6px green;
+  // height: 300px;
+  // width: 300px;
+  // border: dotted 6px green;
   border-radius: 20px;
-  background-image: url("camera-small.png");
+  // background-image: url("camera-small.png");
   background-repeat: no-repeat;
   background-position: center;
   // cursor: pointer;
 }
 
-.preview-box:hover{
-  background-color: orange; 
-}
-
 .hide{
   width: 20px;
   height: 20px;
-  border-radius: 20px;;
+  border-radius: 100px;
+}
+
+
+#img1{
+  border: inset 10px gray;
+  background-image: url("pic.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  border-radius: 30px;
+}
+
+#img1:hover{
+  background-color: lightgoldenrodyellow; 
+  cursor: pointer;
+}
+
+
+.newpost-title {
+  color: green;
+  font-size: 30px;
 }

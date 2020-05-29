@@ -1,46 +1,27 @@
-<%# .form
-  = form_for [@post] do |f|
-    .input_box
-      = f.text_field :image, class: 'image__plantname', placeholder: '写真'
-      = f.text_field :text, class: 'text_frecuency', placeholder: '記事'
-      .form__image
-        = f.label :image, class: 'form__image' do
-          = icon('fas', 'image', class: 'icon')
-          = f.file_field :image, class: 'hidden'
-    = f.submit 'Send', class: 'form__submit' %>
-
-<!--
-
-<div class ="post-box">
-  <%= form_for [@post] do |f|%>
-    <%= f.text_field :text, class: 'text_frecuency', placeholder: '記事'%>
-      <%= f.label :image, class: 'form__image' do%>
-        <%= icon('fas', 'image', class: 'icon')%>
-        <%= f.file_field :image, class: 'hidden'%>
-    <%= f.submit 'Send', class: 'form__submit'%>
-    <% end %>
-  <% end %>
-</div>
-
--->
-
 
 <div class ="container newpost">
+  <div class="row newpost-title-box">
+    <div class="newpost-each newpost-title col-12 text center">
+      <img src="/assets/camera.png/", width="50" height="50", class="post-icon">
+      <a> 投稿を更新</a>
+    </div>
+  </div>
   <%= form_for [@post] do |f|%>
-    <div class="row newpost-box>">
-      <div class="newpost-each col-md-6">
-        <p>記事</p>
-        <%= f.text_area :text, class: 'newpost-text', rows: 10, cols: 10, placeholder: '記事'%>
+  <div class="row newpost-main-box mt-3">
+      <div class="newpost-each col-12">
+          <p>写真をアップロード</p>
+          <%= f.label :image, class: 'newpost_image ' do%>
+            <div class="preview-box">
+                <%= f.file_field :image, class: 'hidden post_img'%>
+                  <img id="img1" style="width:295px;height:295px;" />
+            </div>
+          <% end %>  
       </div>
-      <div class="newpost-each col-md-6">
-        <p>写真</p>
-          <%= f.label :image, class: 'newpost_image' do%>
-            <%= icon('fas', 'camera',  class: 'newpost-icon')%>
-            <%= f.file_field :image, class: 'hidden'%>
-          <% end %>
+      <div class="newpost-each col-12 mt-2">
+        <%= f.text_area :text, class: 'newpost-text', rows: 5, cols: 10, placeholder: '...'%>
       </div>
-      <div class="newpost-each col-md-12 mt-5">
-        <%= f.submit '投稿する', class: "btn-outline-success"%>
+      <div class="newpost-each col-md-12 mt-2">
+        <%= f.submit '投稿', class: "btn-outline-success"%>
       </div>
     </div>
   <% end %>
@@ -48,8 +29,28 @@
 
 
 
-
-
-
-
-
+<script>
+$(function(){
+  $('.post_img').change(function(e){
+    //ファイルオブジェクトを取得する
+    var file = e.target.files[0];
+    var reader = new FileReader();
+ 
+    //画像でない場合は処理終了
+    if(file.type.indexOf("image") < 0){
+      alert("画像ファイルを指定してください。");
+      return false;
+    }
+ 
+    //アップロードした画像を設定する
+    reader.onload = (function(file){
+      return function(e){
+        $("#img1").attr("src", e.target.result);
+        $("#img1").attr("title", file.name);
+      };
+    })(file);
+    reader.readAsDataURL(file);
+ 
+  });
+});
+</script>
