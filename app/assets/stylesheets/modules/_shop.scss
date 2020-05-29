@@ -27,9 +27,11 @@
 }
 
 .shop-newpost{
-  margin-top: 200px;
+  margin-top: 150px;
   border: solid 3px green;
   // padding: 20px 35px 20px 20px;
+  border-radius: 20px;
+  margin-bottom: 60px;
 }
 
 
@@ -43,6 +45,7 @@
   height: 500px;
   width: 100%;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 
@@ -57,14 +60,19 @@
   border-radius: 30px;
   border: solid 3px black;
   height: 30px;
-  width: 50px;
+  width: 400px;
 }
 
 .newpost-box1-each1 h1{
   text-align: center;
+  font: bold;
 }
 
 .plantshop-textform{
   height: 250px;
-  width: 375px;
+  width: 250px;
+}
+
+.new-shop{
+  padding-bottom: 20px;
 }

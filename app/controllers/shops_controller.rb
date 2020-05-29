@@ -31,7 +31,7 @@ class ShopsController < ApplicationController
 
   def update
     shop = Shop.find(params[:id])
-    shop.update(post_params)
+    shop.update(shop_params)
     redirect_to shops_path
   end
 

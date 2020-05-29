@@ -115,12 +115,20 @@ textarea {
   border-bottom: dotted 2px green;
 }
 
-.postshow-comment-create{
-  border: solid 3px green;
-  border-radius: 30px;
-}
+// .postshow-comment-create{
+//   border: solid 3px green;
+//   border-radius: 30px;
+// }
 
 .postshow-comment-create{
   text-align: center;
   padding: 15px;
 }
+
+.comment-content-change{
+    text-align: right;
+}
+
+// .comment-content-message{
+//   padding: 0 50px;
+// }

@@ -19,13 +19,18 @@
   justify-content: center;
 }
 
-// .hidden{
-//   display: none;
+.hidden{
+  display: none;
+}
+
+// .post-image-icon{
+//   height: 100px;
+//   width: 100px;
 // }
 
-.post-image-icon{
-  height: 50px;
-  width: 50px;
+.fa-camera{
+  width: 200px;
+  height: 200px;
 }
 
 .newpost-each{

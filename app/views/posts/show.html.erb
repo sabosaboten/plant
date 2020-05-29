@@ -113,9 +113,9 @@
             <% @comments.each do |comment| %>
               <div class="postshow-comment-box">
                   <div class="comment-content-name">
-                    <%= comment.user.name %>
+                    <%= comment.user.name %>:
                   </div>
-                  <div class="comment-content-name">
+                  <div class="comment-content-message">
                     <%= comment.message %>
                   </div>
                   <% if user_signed_in? && current_user.id == comment.user_id %>

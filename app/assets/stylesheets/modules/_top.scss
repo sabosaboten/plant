@@ -17,6 +17,7 @@
   min-height: 95vh;
   width: 100%;
   position: relative;
+  margin-bottom: 45px;
 }
 
 
@@ -30,6 +31,7 @@
   background-color: white;
   width: 230px;
   height: 230px;
+  margin: 0 auto; 
 }
 
 
@@ -72,13 +74,16 @@
 }
 
 .options-detail{
-  margin: 5px 0;
   width: 200px;
+  height: 32px;
   border-radius: 30px;
   border: 4px solid #7BC61A;
   background-color: white;
-  font-size: 16px;
-  line-height: 16px;
+  font-size: 18px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .top-options{
@@ -86,5 +91,32 @@
 }
 
 .top-detail{
-  margin-bottom: 150px;
+  margin-bottom: 100px;
+}
+
+.small-text1{
+  font-size: 100px;
+  font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+.small-text2{
+  font-size: 50px;
+  font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+
+.title-text1{
+  font-size: 30px;
+  font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+.title-text2{
+  font-size: 15px;
+  font-family: 'Sawarabi Gothic', sans-serif;
+  vertical-align: text-bottom;
+}
+
+.toptitle--detail-box{
+  text-align: center;
+  font: bold;
 }

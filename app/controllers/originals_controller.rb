@@ -2,9 +2,9 @@ class OriginalsController < ApplicationController
   def create
     @original=Original.create(original_params)
     if @original.save
-      redirect_to posts_path
+      redirect_to events_path
     else
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: events_path)
     end
   end
 
@@ -20,7 +20,7 @@ class OriginalsController < ApplicationController
 
   def update
     original = Original.find(params[:id])
-    original.update(post_params)
+    original.update(original_params)
     redirect_to events_path
   end
 
