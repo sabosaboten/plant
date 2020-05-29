@@ -28,11 +28,52 @@
 //   width: 100px;
 // }
 
-.fa-camera{
-  width: 200px;
-  height: 200px;
-}
+// .fa-camera{
+//   width: 200px;
+//   height: 200px;
+// }
 
 .newpost-each{
   text-align: center;
+}
+
+
+#img_prev {
+  color: #666;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: 0.3s ease-out;
+  width: 390px;
+  height: 390px;
+  border-radius: 20px;
+  margin: 0 auto;
+  color: white;
+}
+
+.preview-box{
+  height: 400px;
+  width: 400px;
+  border: dotted 6px green;
+  border-radius: 20px;
+  background-image: url("camera-small.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  // cursor: pointer;
+}
+
+.preview-box:hover{
+  background-color: orange; 
+}
+
+.hide{
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;;
 }

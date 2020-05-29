@@ -9,6 +9,36 @@
 -#     = f.submit 'Send', class: 'form__submit' %>
 
 
+<!--
+<div class ="container newpost">
+  <%= form_for [@post] do |f|%>
+    <div class="row newpost-box>">
+      <div class="newpost-each col-md-6">
+        <p>記事</p>
+        <%= f.text_area :text, class: 'newpost-text', rows: 10, cols: 10, placeholder: '記事'%>
+      </div>
+      <div class="newpost-each col-md-6">
+        <div class= "preview-box">
+          <p>写真</p>
+            <%= f.label :image, class: 'newpost_image' do%>
+              <%= icon('fas', 'camera',  class: 'newpost-icon')%>
+              <%= f.file_field :image, id: :user_img, class: 'hidden'%>
+            <% end %>
+
+          <% if @post.image.present? %>
+            <%= image_tag @post.image, size =>'300x300', id: :img_prev %>
+          <% else %>
+            <%= image_tag "sample.jpg", id: :img_prev %>
+          <% end %>
+        </div>
+      </div>
+      <div class="newpost-each col-md-12 mt-5">
+        <%= f.submit '投稿する', class: "btn-outline-success"%>
+      </div>
+    </div>
+  <% end %>
+</div>
+-->
 
 <div class ="container newpost">
   <%= form_for [@post] do |f|%>
@@ -18,11 +48,33 @@
         <%= f.text_area :text, class: 'newpost-text', rows: 10, cols: 10, placeholder: '記事'%>
       </div>
       <div class="newpost-each col-md-6">
-        <p>写真</p>
+
+<!--              
           <%= f.label :image, class: 'newpost_image' do%>
-            <%= icon('fas', 'camera',  class: 'newpost-icon')%>
-            <%= f.file_field :image, class: 'hidden'%>
-          <% end %>
+                  <div class="preview-box">
+                      <%# <%= icon('fas', 'camera',  class: 'newpost-icon')%>
+                      <%# <img src="/assets/camera.png", width="250" height="250", class="top-icon"> %>
+                      <%= f.file_field :image, class: 'hidden post_img'%>
+                    <% end %>
+                    <% if @post.image.present? %>
+                      <%= image_tag @post.image, id: :img_prev %>
+                    <% else %>
+                      <%= image_tag "0", id: :img_prev, class: "hide"%>
+                  </div>
+          <% end %>  
+-->
+          <%= f.label :image, class: 'newpost_image' do%>
+                  <div class="preview-box">
+                      <%= f.file_field :image, class: 'hidden post_img'%>
+                    <% end %>
+                    <% if @post.image.present? %>
+                      <%= image_tag @post.image, id: :img_prev %>
+                    <% else %>
+                      <%= image_tag "camera.png", id: :img_prev, width: "50px", height: "50px",  class: "hide"%>
+                  </div>
+          <% end %>  
+
+
       </div>
       <div class="newpost-each col-md-12 mt-5">
         <%= f.submit '投稿する', class: "btn-outline-success"%>
@@ -31,3 +83,47 @@
   <% end %>
 </div>
 
+
+<!--
+                <% if @post.image.present? %>
+                  <%= image_tag @post.image, id: :img_prev %>
+                <% else %>
+                  <%= image_tag "sample.jpg", id: :img_prev %>
+                <% end %>
+--->
+
+
+
+<script type="text/javascript">
+  $(function() {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $(".post_img").change(function(){
+        readURL(this);
+    });
+  });
+</script>
+
+<script type="text/javascript">
+  $(function() {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $(".post_img").change(function(){
+        readURL(this);
+    });
+  });
+</script>
