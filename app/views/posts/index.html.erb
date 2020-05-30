@@ -1,171 +1,92 @@
-<!---
-<div class="main">
-  <div class="options">
-    <ul class="menu">
-      <li><a href="#" id="about" class="menu_item active">新規投稿</a></li>
-      <li><a href="#" id="service" class="menu_item">人気投稿</a></li>
-    </ul>
-  </div>
-  <div class="post-search-box">
-    <%= form_tag(search_posts_path, :method => "get", class: "post-search-form") do %>
-      <%= text_field_tag :keyword %>
-      <%= submit_tag "検索", :name => nil, class: "post-search-submit" %>
-    <% end %>
-  </div>
-  <div class="swich show">
-    <div class="contents-box">
-      <% @posts.each do |post| %>
-        <%= render partial: "post", locals: { post: post } %>
-      <% end %>
-    </div>
-  </div>
-  <div class="swich">
-    <div class="contents-box">
-      <% @all_ranks.each do |post| %>
-        <%= render partial: "post", locals: { post: post } %>
-      <% end %> 
-    </div>
-  </div>
-</div>
---->
-
-<div class="container container-posts mb-3">
+<div class="container container-posts">
   
-<%#   
-  <div class="row options">
-    <ul class="menu">
-      <div class="col-sm-6 col-md-8 off-set2"><li><a href="#" id="about" class="menu_item active">新規投稿</a></li></div>
-      <div class="col-sm-6 col-md-8 off-set2"><li><a href="#" id="service" class="menu_item">人気投稿</a><li></div>
-    </ul>
-  </div> %>
-<%# 
-  <div class="row preference">
-    <div class="menu_item active col-md-6" href="#">新規投稿</div>
-    <div class="menu_item col-md-6" href="#">人気投稿</div>
-  </div> %>
-
+  <%# 新規投稿 or 人気投稿 %>
+  <div class="row preference-row pt-4">
+    <div class="col-1"></div>
+    <div class="preference active col-5"><a href="#">新規投稿</a></div>
+    <div class="preference col-5"><a href="#">人気投稿</a></div>
+    <div class="col-1"></div>
+  </div>
   
-  <%# <div class="row preference">
-    <div class="prf1 active col-md-4 offset-md-2"><a href="#">新規投稿</a></div>
-    <div class="prf2 col-md-4 offset-md-2"><a href="#">人気投稿投稿</a></div>
-  </div> %>
-
-  <%# <div class="row preference">
-    <div class="prf active col-md-5 offset-md-1"><a href="#">新規投稿</a></div>
-    <div class="prf col-md-5 offset-md-1"><a href="#">人気投稿投稿</a></div>
-  </div> %>
-
-  <div class="row preference pt-4">
-    <div class="col-1"></div>
-    <div class="prf active col-5"><a href="#">新規投稿</a></div>
-    <div class="prf col-5"><a href="#">人気投稿</a></div>
-    <div class="col-1"></div>
-  </div>
-
-
-<!--
-      <li><a href="#" id="about" class="menu_item active">新規投稿</a></li>
-      <li><a href="#" id="service" class="menu_item">人気投稿</a></li>
--->
-<!--
-  <div class="row search">
-    <%= form_tag(search_posts_path, :method => "get", class: "post-search-form") do %>
+  <%# 検索 %>
+  <div class="row row-posts-search pt-2">
+    <div class="col-2"></div>
+    <div class="search-form col-md-6">
+    <%= form_tag(search_posts_path, :method => "get") do %>
       <%= text_field_tag :keyword %>
-      <%= submit_tag "検索", :name => nil, class: "post-search-submit" %>
-    <% end %>
-  </div>
--->
-  <div class="row search pt-2">
-    <div class="col-1"></div>
-    <div class="sform col-md-7">
-      <%= form_tag(search_posts_path, :method => "get") do %>
-        <%= text_field_tag :keyword %>
     </div>
-    <%# <div class="col-1"></div> %>
-    <div class="ssubmit col-md-2">
-      <%= submit_tag "検索", :name => nil, class: "sbtn" %>
+    <div class="search-submit col-md-2">
+      <%= submit_tag "検索", :name => nil, class: "search-btn" %>
+    <% end %>
     </div>
     <div class="col-2"></div>
-    <% end %>
   </div>
-
+  
+  <%# 投稿一覧(新規投稿) %>  
   <div class="swich show">
-  <div class="row post-cards">
-    <% @posts.each do |post| %>
-      <div class="col-lg-4 col-md-6 card-index">
-        <div class="card">
-          <div class="card-header">
-            <%= link_to post.user.name, user_path(post.user.id) %>
-          </div>
-          <div class="card-img-top">
-            <%-if post.image.present?%>
-              <%= link_to post_path(post.id) do %>
-                <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
+    <div class="row posts-cards-row">
+      <% @posts.each do |post| %>
+        <div class="col-lg-4 col-md-6 posts-cards-index">
+          <div class="card post-card">
+            <div class="card-header post-card-header">
+              <%= link_to post.user.name, user_path(post.user.id) %>
+            </div>
+            <div class="card-img-top">
+              <%-if post.image.present?%>
+                <%= link_to post_path(post.id) do %>
+                  <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
-          <!---<div class="card-body">
-            <%-if post.image.present?%>
-              <%= link_to post_path(post.id) do %>
-                <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
-              <% end %>
-            <% end %>
-          </div> --->
-          <div class="card-text">
-            <%="コメント#{post.comments.count}件"%>
-            <%="いいね！#{post.likes.count}件"%>
+            </div>
+            <div class="card-text">
+              <%="コメント#{post.comments.count}件"%>
+              <%="いいね！#{post.likes.count}件"%>
+            </div>
           </div>
         </div>
-      </div>
-    <%end%>
+      <%end%>
+    </div>
+    <%= paginate(@posts) %>
   </div>
-      <%= paginate(@posts) %>
-  </div>
+  
+  <%# 投稿一覧(人気投稿) %>  
   <div class="swich">
-  <div class="row post-cards">
-    <% @all_ranks.each do |post| %>
-       <div class="col-lg-4 col-md-6 card-index">
-        <div class="card">
-          <div class="card-header">
-            <%= link_to post.user.name, user_path(post.user.id) %>
-          </div>
-          <div class="card-img-top">
-            <%-if post.image.present?%>
-              <%= link_to post_path(post.id) do %>
-                <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
+    <div class="row posts-cards-row">
+      <% @all_ranks.each do |post| %>
+        <div class="col-lg-4 col-md-6 posts-cards-index">
+          <div class="card post-card">
+            <div class="card-header post-card-header">
+              <%= link_to post.user.name, user_path(post.user.id) %>
+            </div>
+            <div class="card-img-top">
+              <%-if post.image.present?%>
+                <%= link_to post_path(post.id) do %>
+                  <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
-          <!---<div class="card-body">
-            <%-if post.image.present?%>
-              <%= link_to post_path(post.id) do %>
-                <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
-              <% end %>
-            <% end %>
-          </div> --->
-          <div class="card-text">
-            <%="コメント#{post.comments.count}件"%>
-            <%="いいね！#{post.likes.count}件"%>
+            </div>
+            <div class="card-text">
+              <%="コメント#{post.comments.count}件"%>
+              <%="いいね！#{post.likes.count}件"%>
+            </div>
           </div>
         </div>
-      </div>
-    <%end%>
+      <%end%>
+    </div>
+    <%= paginate(@posts) %>
   </div>
-      <%= paginate(@posts) %>
-  </div>
-</div>
-</div>
+
 </div>
 
+<%# </div>
+</div> %>
 
-
+<%# 新規投稿ボタン %>  
 <% if user_signed_in? %>
-  <div class="d-none d-md-block">
+  <div class="d-none d-lg-block">
     <%= link_to icon("fas", "plus-circle") + ' 新規投稿', new_post_path, class: 'new-post-btn--pc' %>
   </div>
-  <div class="d-block d-md-none">
+  <div class="d-block d-lg-none">
     <%= link_to icon("fas", "plus"), new_post_path, class: 'new-post-btn--sp' %>
   </div>
 <% end %>
-
-

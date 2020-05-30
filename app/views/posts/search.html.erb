@@ -1,109 +1,72 @@
-<!--
-
-<div class="main">
-  <%= form_tag(search_posts_path, :method => "get", class: "search-form") do %>
-   <%= text_field_tag :keyword %>
-   <%= submit_tag "submit", :name => nil %>
-  <% end %>
-  <div class="contents-box">
-    <% @posts.each do |post| %>
-      <div class="content">
-        <div class="content-header">
-          <%= link_to post.user.name, user_path(post.user.id)%>
-        </div>
-        <div class="content-main">
-          <div class="content-main-text">
-            <%= link_to post.text, post_path(post.id)%>
-          </div>
-          <div class="content-main-image">
-            <%-if post.image.present?%>
-              <%# <%=post.image%>
-            <%= image_tag post.image.url, :size =>'150x200', class: 'lower-message__image' if post.image.present?%>
-            <%end%>
-          </div>
-        </div>
-        <div class="content-footer">
-          <%="コメント#{post.comments.count}件"%>
-          <%="いいね！#{post.likes.count}件"%>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-
--->
-
-
-<div class="container container-posts mb-3">
+<div class="container container-posts">
   
-
-  <div class="row preference pt-4">
+  <%# 新規投稿 or 人気投稿 %>
+  <div class="row preference-row pt-4">
     <div class="col-1"></div>
-    <div class="prf active col-5"><a href="#">新規投稿</a></div>
-    <div class="prf col-5"><a href="#">人気投稿投稿</a></div>
+    <div class="preference active col-5"><a href="#">新規投稿</a></div>
+    <div class="preference col-5"><a href="#">人気投稿</a></div>
     <div class="col-1"></div>
   </div>
-
-  <div class="row search pt-2">
-    <div class="col-1"></div>
-    <div class="sform col-md-7">
-      <%= form_tag(search_posts_path, :method => "get") do %>
-        <%= text_field_tag :keyword %>
+  
+  <%# 検索 %>
+  <div class="row row-posts-search pt-2">
+    <div class="col-2"></div>
+    <div class="search-form col-md-6">
+    <%= form_tag(search_posts_path, :method => "get") do %>
+      <%= text_field_tag :keyword %>
     </div>
-    <%# <div class="col-1"></div> %>
-    <div class="ssubmit col-md-2">
-      <%= submit_tag "検索", :name => nil, class: "sbtn" %>
+    <div class="search-submit col-md-2">
+      <%= submit_tag "検索", :name => nil, class: "search-btn" %>
+    <% end %>
     </div>
     <div class="col-2"></div>
-    <% end %>
   </div>
-
+  
+  <%# 投稿一覧(新規投稿) %>  
   <div class="swich show">
-  <div class="row post-cards">
-    <% @posts.each do |post| %>
-      <div class="col-lg-4 col-md-6 card-index">
-        <div class="card">
-          <div class="card-header">
-            <%= link_to post.user.name, user_path(post.user.id) %>
-          </div>
-          <div class="card-img-top">
-            <%-if post.image.present?%>
-              <%= link_to post_path(post.id) do %>
-                <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
+    <div class="row posts-cards-row">
+      <% @posts.each do |post| %>
+        <div class="col-lg-4 col-md-6 posts-cards-index">
+          <div class="card post-card">
+            <div class="card-header post-card-header">
+              <%= link_to post.user.name, user_path(post.user.id) %>
+            </div>
+            <div class="card-img-top">
+              <%-if post.image.present?%>
+                <%= link_to post_path(post.id) do %>
+                  <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
-          <!---<div class="card-body">
-            <%-if post.image.present?%>
-              <%= link_to post_path(post.id) do %>
-                <%= image_tag post.image, :size =>'298x298', class: 'post-img' if post.image.present?%>
-              <% end %>
-            <% end %>
-          </div> --->
-          <div class="card-text">
-            <%="コメント#{post.comments.count}件"%>
-            <%="いいね！#{post.likes.count}件"%>
+            </div>
+            <div class="card-text">
+              <%="コメント#{post.comments.count}件"%>
+              <%="いいね！#{post.likes.count}件"%>
+            </div>
           </div>
         </div>
-      </div>
-    <%end%>
-  </div>
+      <%end%>
+    </div>
     <%= paginate(@posts) %>
   </div>
 </div>
-</div>
-</div>
 
 
+<%# </div>
+</div> %>
 
-
+<%# 新規投稿ボタン %>  
 <% if user_signed_in? %>
-  <div class="d-none d-md-block">
+  <div class="d-none d-lg-block">
     <%= link_to icon("fas", "plus-circle") + ' 新規投稿', new_post_path, class: 'new-post-btn--pc' %>
   </div>
-  <div class="d-block d-md-none">
+  <div class="d-block d-lg-none">
     <%= link_to icon("fas", "plus"), new_post_path, class: 'new-post-btn--sp' %>
   </div>
 <% end %>
+
+
+
+
+
 
 

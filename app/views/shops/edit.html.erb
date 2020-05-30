@@ -1,218 +1,40 @@
 <div class ="container shop-newpost">
-    <div class="row newshop-title-box">
-          <div class="newpost-each newshop-title col-12 text center">
-            <img src="/assets/shop.png/", width="50" height="50", class="post-icon">
-            <a>投稿を更新</a>
-          </div>
+  
+  <%# タイトル %>
+  <div class="row newshop-title-row">
+    <div class="newshop-title col-12">
+      <img src="/assets/shop.png/", width="50" height="50", class="post-icon">
+      <a>投稿を更新</a>
     </div>
-    <div class="row newpost-box2 mt-5">
-      <div class="newpost-box2-each1 col-md-4">
-          <%= form_for(@shop) do |f| %>
-          <h5>観葉植物店の名前</h5>
-          <%= f.text_field :name, placeholder: "店名" %>
-          <h5>住所</h5>
-          <p>(マップで検索した住所を挿入)</h5>
-          <%= f.text_field :address, placeholder: "住所を挿入" %>
-          <h5>おすすめポイント</h5>
-          <%= f.text_area :text, placeholder: "ex.~が置いてある", class: "plantshop-textform" %>
-          <div class="shop-registration-btn mt-5">
-            <%= f.submit "お店を登録", class: "btn-outline-success" %>
-          </div>
-          <% end %>
+  </div>
+
+  <div class="row newshop-row mt-5">
+    
+    <%# 投稿作成 %>
+    <div class="newpost-info-box col-md-5">
+      <%= form_for(@shop) do |f| %>
+      <p>観葉植物店の名前</p>
+      <%= f.text_field :name, placeholder: "店名", class: "shop-name-textform" %>
+      <p>住所(マップで検索した住所を挿入)</p>
+      <%= f.text_field :address, placeholder: "住所を挿入", class: "shop-address-textform" %>
+      <p>おすすめポイント</p>
+      <%= f.text_area :text, placeholder: "ex.~が置いてある", class: "shop-info-textform" %>
+      <div class="shop-registration-btn mt-2">
+      <%= f.submit "更新", class: "btn-outline-success" %>
       </div>
-    <div class="newpost-box2-each2 col-md-8">
+      <% end %>
+    </div>
+    
+    <%# 検索用のマップ %>
+    <div class="newpost-map-box col-md-7">
       <div class="newpost-searchbox">
         <input id="pac-input" class="controls" type="text" placeholder="店名や場所で住所を検索">
       </div>
       <div id="map">
       </div>   
+    </div>
   </div>
 </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <script>
-      // This example adds a search box to a map, using the Google Place Autocomplete
-      // feature. People can enter geographical searches. The search box will return a
-      // pick list containing a mix of places and predicted search terms.
-
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
-      function initAutocomplete() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 35.6812, lng: 139.767},
-          zoom: 13,
-          mapTypeId: 'roadmap'
-        });
-
-        // Create the search box and link it to the UI element.
-        var input = document.getElementById('pac-input');
-        var searchBox = new google.maps.places.SearchBox(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-        // Bias the SearchBox results towards current map's viewport.
-        map.addListener('bounds_changed', function() {
-          searchBox.setBounds(map.getBounds());
-        });
-
-        var markers = [];
-        // Listen for the event fired when the user selects a prediction and retrieve
-        // more details for that place.
-        searchBox.addListener('places_changed', function() {
-          var places = searchBox.getPlaces();
-
-          if (places.length == 0) {
-            return;
-          }
-
-          // Clear out the old markers.
-          markers.forEach(function(marker) {
-            marker.setMap(null);
-          });
-          markers = [];
-
-          // For each place, get the icon, name and location.
-          var bounds = new google.maps.LatLngBounds();
-          places.forEach(function(place) {
-            if (!place.geometry) {
-              console.log("Returned place contains no geometry");
-              return;
-            }
-            var icon = {
-              url: place.icon,
-              size: new google.maps.Size(71, 71),
-              origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(17, 34),
-              scaledSize: new google.maps.Size(25, 25)
-            };
-
-            // Create a marker for each place.
-            markers.push(new google.maps.Marker({
-              map: map,
-              icon: icon,
-              title: place.name,
-              position: place.geometry.location
-            }));
-
-            if (place.geometry.viewport) {
-              // Only geocodes have viewport.
-              bounds.union(place.geometry.viewport);
-            } else {
-              bounds.extend(place.geometry.location);
-            }
-          });
-          map.fitBounds(bounds);
-        });
-      }
-
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Jr1NrfngK80oIANtzFL6LWsYJSKoz3c&libraries=places&callback=initAutocomplete"
-         async defer></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #description {
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-      }
-
-      #infowindow-content .title {
-        font-weight: bold;
-      }
-
-      #infowindow-content {
-        display: none;
-      }
-
-      #map #infowindow-content {
-        display: inline;
-      }
-
-      .pac-card {
-        margin: 10px 10px 0 0;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        font-family: Roboto;
-      }
-
-      #pac-container {
-        padding-bottom: 12px;
-        margin-right: 12px;
-      }
-
-      .pac-controls {
-        display: inline-block;
-        padding: 5px 11px;
-      }
-
-      .pac-controls label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
-
-      #pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 400px;
-      }
-
-      #pac-input:focus {
-        border-color: #4d90fe;
-      }
-
-      #title {
-        color: #fff;
-        background-color: #4d90fe;
-        font-size: 25px;
-        font-weight: 500;
-        padding: 6px 12px;
-      }
-      #target {
-        width: 345px;
-      }
-    </style>
+    
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Jr1NrfngK80oIANtzFL6LWsYJSKoz3c&libraries=places&callback=initAutocomplete"
+async defer></script>

@@ -1,0 +1,250 @@
+.container-posts{
+  padding-top: 90px;
+  margin-bottom: 70px;
+}
+
+/* 新規投稿or人気投稿 */
+.preference.active{
+  display: inline-block;
+  border: 5px solid #7BC61A;
+  background: green;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 2px;
+}
+
+.preference{
+  display: inline-block;
+  padding: 15px 0;
+  border: 5px solid #7BC61A;
+  color:#7BC61A;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 2px;
+}
+
+
+/* 検索 */
+#keyword{
+  width: 100%;
+  height: 50px;
+  border: solid 3px saddlebrown;
+  font-size: 20px;
+  border-radius: 50px;
+  padding-left: 15px;
+  margin-bottom: 7px;
+  margin-top: 10px;
+}
+
+.search-btn{
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  border:solid 5px saddlebrown;
+  background-color: wheat;
+  display: flex;
+  justify-content: center;
+  border-radius: 50px;
+  margin-bottom: 7px;
+  margin-top: 10px;
+}
+
+/* 投稿一覧(新規投稿) */
+.swich.show{
+  display: block;
+  padding-bottom: 40px;
+}
+
+.swich{
+  display: none;
+  padding-bottom: 40px;
+}
+
+.posts-cards-row{
+  // display: flex;
+  // justify-content: center;
+  margin: 0 auto;
+}
+
+.posts-cards-index{
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+  height: auto;
+}
+
+.post-card{
+  width: 300px;
+  height: 100%;
+}
+
+.post-image{
+  border: solid 3px green;
+}
+
+.card-img-top{
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  width: 300px;
+}
+
+/* 新規投稿ボタン */
+.new-post-btn {
+  &--pc {
+    position: fixed;
+    z-index: 1000;
+    border-radius: 50%;
+    background-color: green;
+    color: white;
+    text-align: center;
+    bottom: 100px;
+    right: 32px;
+    width: 160px;
+    height: 160px;
+    font-size: 22px;
+    padding-top: 64px;
+    &:hover {
+      text-decoration: none;
+      background-color: darkgreen;
+      color: white;
+    }
+  }
+  &--sp {
+    position: fixed;
+    z-index: 1000;
+    border-radius: 50%;
+    background-color: green;
+    color: white;
+    text-align: center;
+    bottom: 125px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    font-size: 38px;
+    padding-top: 12px;
+    &:hover {
+      text-decoration: none;
+      background-color:darkgreen;
+      color: white;
+    }
+  }
+}
+
+
+// 削除予定
+
+// .menu{
+//   display: flex;
+//   margin: 0 auto;
+// }
+
+// .menu_item.active{
+//   display: inline-block;
+//   padding: 15px;
+//   border: 5px solid #7BC61A;
+//   background: green;
+//   color: #fff;
+//   text-decoration: none;
+//   border-radius: 50px;
+//   font-weight: bold;
+//   width: 200px;
+//   margin: 0 20px;
+//   text-align: center;
+// }
+
+// .menu_item{
+//   display: inline-block;
+//   padding: 15px;
+//   border: 5px solid #7BC61A;
+//   color:#7BC61A;
+//   text-decoration: none;
+//   border-radius: 50px;
+//   font-weight: bold;
+//   width: 200px;
+//   margin: 0 20px;
+//   text-align: center;
+// }
+
+// .post-search-form{
+//   margin: 0 auto;
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   margin: 20px 0;
+// }
+
+// .contents-box{
+//   flex-wrap:wrap;
+//   display: flex;
+//   justify-content: space-between;
+//   height: 100%;
+//   padding: 20px 50px 0px 50px;
+// }
+
+// .content{
+//   width: 300px;
+//   // height: 500px;
+//   background-color: white;
+//   margin: 20px;
+//   border-radius: 50px;
+//   border: solid 5px #7BC61A;
+// }
+
+// .content-header{
+//   height: 40px;
+//   // background-color: red;
+//   width: 100%;
+//   padding: 5px 15px;
+//   font-size: 20px;
+//   border-bottom:solid 5px #7BC61A;
+// }
+
+// .content-header a{
+//   text-decoration: none;
+//   color:  green;
+// } 
+
+// .content-main{
+//   width: 100%;
+//   height: 300px;
+// }
+
+// .content-main-text{
+//   width: 100%;
+//   height: 80px;
+//   padding: 5px 15px;
+// }
+
+// .content-main-image{
+//   width: 100%;
+//   height: 100%;
+//   // background-color: cornflowerblue;
+//   display: flex;
+//   justify-content: center;
+// }
+
+
+// .container{
+//   margin: 0 auto;
+// }
+
+// .content-footer{
+//   background-color: #7BC61A;
+//   width: 100%;
+//   height: 20px;
+//   line-height: 20px;
+//   font-size: 15px;
+// }
+
+// .schedule__box{
+//   width: 800px;
+//   margin: 0 auto;
+//   background-color: gray;
+//   margin-bottom: 10px;
+// }

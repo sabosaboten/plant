@@ -1,3 +1,107 @@
+<div class ="container newpost">
+  
+  <%# タイトル %>
+  <div class="row newpost-title-row">
+    <div class="newpost-each newpost-title col-12 text center">
+      <img src="/assets/camera.png/", width="50" height="50", class="post-icon">
+      <a>  コミュニティに投稿</a>
+    </div>
+  </div>
+  
+  <%# 投稿フォーム %>
+  <%= form_for [@post] do |f|%>
+  <div class="row newpost-main-row mt-3">
+    <div class="newpost-image-box col-12">
+      <p>写真をアップロード</p>
+      <%= f.label :image, class: 'newpost-image' do%>
+        <div class="preview-place">
+          <%= f.file_field :image, class: 'hidden post-img'%>
+            <img id="img1" style="width:295px;height:295px;" />
+        </div>
+      <% end %>  
+    </div>
+    <div class="newpost-each col-12 mt-2">
+      <%= f.text_area :text, class: 'newpost-text', rows: 5, cols: 10, placeholder: '...'%>
+    </div>
+    <div class="newpost-each col-md-12 mt-2">
+      <%= f.submit '投稿', class: "btn-outline-success"%>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<script>
+$(function(){
+  $('.post-img').change(function(e){
+    //ファイルオブジェクトを取得する
+    var file = e.target.files[0];
+    var reader = new FileReader();
+ 
+    //画像でない場合は処理終了
+    if(file.type.indexOf("image") < 0){
+      alert("画像ファイルを指定してください。");
+      return false;
+    }
+ 
+    //アップロードした画像を設定する
+    reader.onload = (function(file){
+      return function(e){
+        $("#img1").attr("src", e.target.result);
+        $("#img1").attr("title", file.name);
+      };
+    })(file);
+    reader.readAsDataURL(file);
+ 
+  });
+});
+</script>
+
+
+
+
+
+
+<!---
+
+
+<script type="text/javascript">
+  $(function() {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $(".post-img").change(function(){
+        readURL(this);
+    });
+  });
+</script>
+--->
+
+
+<!---
+<script type="text/javascript">
+  $(function() {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $(".post_img").change(function(){
+        readURL(this);
+    });
+  });
+</script>
+--->
+
 <%# -# .form
 -#   = form_for [@post] do |f|
 -#     .input_box
@@ -40,33 +144,6 @@
 </div>
 -->
 
-<div class ="container newpost">
-  <div class="row newpost-title-box">
-        <div class="newpost-each newpost-title col-12 text center">
-          <img src="/assets/camera.png/", width="50" height="50", class="post-icon">
-          <a>  コミュニティに投稿</a>
-        </div>
-  </div>
-  <%= form_for [@post] do |f|%>
-  <div class="row newpost-main-box mt-3">
-      <div class="newpost-each col-12">
-                          <p>写真をアップロード</p>
-          <%= f.label :image, class: 'newpost_image ' do%>
-            <div class="preview-box">
-                <%= f.file_field :image, class: 'hidden post_img'%>
-                  <img id="img1" style="width:295px;height:295px;" />
-            </div>
-          <% end %>  
-      </div>
-      <div class="newpost-each col-12 mt-2">
-        <%= f.text_area :text, class: 'newpost-text', rows: 5, cols: 10, placeholder: '...'%>
-      </div>
-      <div class="newpost-each col-md-12 mt-2">
-        <%= f.submit '投稿', class: "btn-outline-success"%>
-      </div>
-    </div>
-  <% end %>
-</div>
 
 
 <!--
@@ -75,77 +152,5 @@
                 <% else %>
                   <%= image_tag "sample.jpg", id: :img_prev %>
                 <% end %>
---->
-
-
-
-<script>
-$(function(){
-  $('.post_img').change(function(e){
-    //ファイルオブジェクトを取得する
-    var file = e.target.files[0];
-    var reader = new FileReader();
- 
-    //画像でない場合は処理終了
-    if(file.type.indexOf("image") < 0){
-      alert("画像ファイルを指定してください。");
-      return false;
-    }
- 
-    //アップロードした画像を設定する
-    reader.onload = (function(file){
-      return function(e){
-        $("#img1").attr("src", e.target.result);
-        $("#img1").attr("title", file.name);
-      };
-    })(file);
-    reader.readAsDataURL(file);
- 
-  });
-});
-</script>
-
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-  $(function() {
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-    $('#img_prev').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $(".post_img").change(function(){
-        readURL(this);
-    });
-  });
-</script>
-
-<!---
-<script type="text/javascript">
-  $(function() {
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-    $('#img_prev').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $(".post_img").change(function(){
-        readURL(this);
-    });
-  });
-</script>
 --->
 

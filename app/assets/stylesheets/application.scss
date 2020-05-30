@@ -16,13 +16,13 @@
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "modules/posts";
-@import "modules/edit-create";
-@import "modules/post";
+@import "modules/posts-index";
+@import "modules/posts-edit-create";
+@import "modules/posts-show";
 @import "modules/mypage";
 @import "modules/base";
 @import "modules/user";
-@import "modules/shop";
+@import "modules/shops-edit-create";
 @import "modules/top";
 @import "modules/event";
 // @import "bootstrap-sprockets";
