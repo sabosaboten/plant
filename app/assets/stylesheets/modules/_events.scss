@@ -1,0 +1,146 @@
+.event-container{
+  margin-top: 80px;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+/* タイトル */
+.events-title {
+  text-align: center;
+  color: green;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.events-title p{
+  text-align: center;
+  color: green;
+  font-size: 15px;
+}
+
+/* 植物リスト */
+
+.plant-card-index{
+  display: flex;
+  justify-content: center;
+}
+
+.event-card{
+  width: 200px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.myplant-image{
+  border: solid 2px green;
+}
+
+/* 新規投稿ボタン */
+.new-original-btn {
+  &--pc {
+    position: fixed;
+    z-index: 1000;
+    border-radius: 50%;
+    background-color: green;
+    color: white;
+    text-align: center;
+    top: 90px;
+    right: 182px;
+    width: 150px;
+    height: 50px;
+    font-size: 22px;
+    padding-top: 10px;
+    &:hover {
+      text-decoration: none;
+      background-color: darkgreen;
+      color: white;
+    }
+  }
+  &--sp {
+    position: fixed;
+    z-index: 1000;
+    border-radius: 50%;
+    background-color: green;
+    color: white;
+    text-align: center;
+    top: 80px;
+    right: 10px;
+    width: 70px;
+    height: 70px;
+    font-size: 38px;
+    padding-top: 8px;
+    &:hover {
+      text-decoration: none;
+      background-color:darkgreen;
+      color: white;
+    }
+  }
+}
+
+
+/* カレンダー */
+.events-record-title{
+  text-align: center;
+  color: green;
+  font-size: 30px;
+}
+
+
+//evet-show
+.event-edit{
+  margin-top: 250px;
+}
+
+
+//original
+
+//植物の登録
+.container-original{
+  margin-top: 150px;
+  width: 100%;
+  padding: 2%;
+}
+
+/* タイトル */
+.original-title {
+  color: green;
+  font-size: 30px;
+  text-align: center;
+}
+
+/* 投稿フォーム */
+.original-pic-box{
+  text-align: center;
+}
+
+.original-name{
+  text-align: center;
+}
+
+.original-submit{
+  text-align: center;
+}
+
+#img2{
+  border: inset 10px gray;
+  background-image: url("pic.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  border-radius: 30px;
+}
+
+#img2:hover{
+  background-color: lightgoldenrodyellow; 
+  cursor: pointer;
+}
+
+
+select{
+  border-radius:30px;
+  border: solid 2px gray;
+}
+
+select:hover{
+  cursor: pointer;
+}

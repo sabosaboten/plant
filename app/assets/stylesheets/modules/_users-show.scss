@@ -1,0 +1,45 @@
+.user-top{
+  margin-top: 100px;
+  margin-bottom: 40px;
+}
+
+/* タイトル */
+.user-top-name{
+  font-size: 50px;
+  font: bold;
+}
+
+/* ユーザー情報のオプション */
+.mypage-options.active{
+  display: inline-block;
+  padding: 15px;
+  border: 5px solid #7BC61A;
+  background: green;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  margin: 10px 0 20px 0;
+  text-align: center;  
+}
+
+.mypage-options {
+  display: inline-block;
+  padding: 15px;
+  border: 5px solid #7BC61A;
+  color:#7BC61A;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  margin: 10px 0 20px 0;
+  text-align: center;
+}
+
+.mypage-options:hover{
+  cursor: pointer;
+}
+
+
+
+
+

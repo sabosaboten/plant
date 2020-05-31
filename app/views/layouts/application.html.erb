@@ -1,3 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Plant</title>
+    <%# <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%# <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags%>
+  </head>
+  <body data-turbolinks="false">
+    <header class="header">
+      <div class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-success sticky-top">
+          <a href="/homes" >
+            <img src="https://img.icons8.com/color/96/000000/natural-food.png", class="header-logo",alt="ロゴ", width="60" height="60",class="header-icon">
+          </a>
+          <a href="/homes" class="navbar-brand text-white">
+            <span class="title-header1 text-white">CULT.</span><span class="title-header2 text-white">ivate</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarsExample05">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">観葉植物シェア</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown05">
+                  <a class="dropdown-item" <%= link_to "投稿一覧", posts_path %></a>
+                  <a class="dropdown-item" <%= link_to "投稿する", new_post_path %></a>
+                </div>
+              </li>
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">観葉植物のお店</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown05">
+                  <a class="dropdown-item" <%= link_to "皆のおすすめ", shops_path%></a>
+                  <a class="dropdown-item" <%= link_to "お店を共有", new_shop_path%></a>
+                </div>
+              </li>
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                  <a class="nav-link text-white" <%= link_to "水やり管理", events_path%></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" <%= link_to "マイページ", user_path(current_user.id) %></a>
+                </li>
+              <% end %>
+            </ul>
+            <ul class="navbar-nav">
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                  <a class="nav-link text-white" <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" <%= link_to "アカウントを編集", edit_user_path(current_user)%></a>
+                </li>
+              <% else %>
+                <li class="nav-item active ">
+                  <a class="nav-link text-white"  <%= link_to "ログイン", new_user_session_path, :class => 'post' %></a>
+                  <a class="nav-link text-white" <%= link_to "新規登録", new_user_registration_path, :class => 'post' %></a>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <%= yield %>
+    <footer class="footer bg-success">
+      <p>Copyright CULT.ivate 2020.</p>
+    </footer>
+  </body>
+</html>
+
+<%# ローディング画面 %>
+<div id="my-spinner" class="box">
+  <!-- type1 〜 type8 はお好みで -->
+  <div class="spinner type1">
+    <span>Loading...</span>
+  </div>
+</div>
+
+
 <%# -# !!!
 -# %html
 -#   %head
@@ -18,277 +102,3 @@
 -#         = icon('fas', 'cog', class: 'icon')
 -#     = yield
 -#     .footer %>
-
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-    <title>Plant</title>
-    <%# <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%# <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application' %>
-    <%= csrf_meta_tags%>
-  </head>
-
-
-  <body data-turbolinks="false">
-    <header class="header">
-<!--
-      <%= link_to users_path do %>
-        <img src="https://img.icons8.com/color/96/000000/natural-food.png", width="85" height="85", class="header-icon">
-      <% end %>
-      <%= link_to "投稿一覧", posts_path%>
-      <% if user_signed_in? %>
-      <%= link_to "記事投稿", new_post_path%>
-      <%= link_to "店投稿", new_shop_path%>
-      <% end %>
-      <%= link_to "ショッピングページ", shops_path%>
-      <%# <%= link_to "投稿マイページ", user_path(current_user.id)%>
-      <%# <%= link_to edit_user_path(current_user)%>
-        <%# <%= icon('fas', 'cog', class: 'icon')%>
-      
-      <% if user_signed_in? %>
-        <div class="user_nav grid-6">
-          <span><%= current_user.name %>
-            <ul class="user__info">
-              <li>
-                <a href="/users/<%= current_user.id %>">マイページ</a>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-              </li>
-            </ul>
-          </span>
-            <a class="post" href="/posts/new">投稿する</a>
-          </div>
-        <% else %>
-          <div class="grid-6">
-            <%= link_to "ログイン", new_user_session_path, :class => 'post' %>
-            <%= link_to "新規登録", new_user_registration_path, :class => 'post' %>
-          </div>
-        <% end %>
-
-    <%# <ul class="menu">
-        <li><a href="#" id="about" class="menu_item active">新規投稿</a></li>
-        <li><a href="#" id="service" class="menu_item">人気投稿</a></li>
-    </ul> %>
-
---->
-
-<!---
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navi" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a href="/users" class="navbar-brand">
-          <img src="https://img.icons8.com/color/96/000000/natural-food.png", alt="ロゴ", width="85" height="85", class="header-icon">
-        </a>
-      </div>
- 
-      <div class="collapse navbar-collapse" id="bs-navi">
-        <ul class="nav navbar-nav">
-            <li><a href="<%posts_path%>">投稿一覧</a></li>
-            <li><%= link_to "投稿一覧", posts_path %></li>
-            <li><a href="shops">プラントショップfake</a></li>
-            <li><%= link_to "ショッピングページ", shops_path%></li>
-          <% if user_signed_in? %>
-            <li><a href="/users/<%= current_user.id %>">マイページfake</a></li>
-            <li><%= link_to "マイページ", user_path(current_user.id) %></li>
-            <li><a href="/events">マイプラントfale</a></li>
-            <li><%= link_to current_user.name, user_path(current_user.id)%></li>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-          <% else %>
-            <li><%= link_to "ログイン", new_user_session_path, :class => 'post' %></li>
-            <li><%= link_to "新規登録", new_user_registration_path, :class => 'post' %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </nav>
--->
-
-<!--
-<nav class="navbar navbar-default navbar-fixed-top navbar-dark bg-dark">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navi" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a href="/users" class="navbar-brand">
-          <img src="https://img.icons8.com/color/96/000000/natural-food.png", alt="ロゴ", width="70" height="70", class="header-icon">
-        </a>
-      </div>
- 
-      <div class="collapse navbar-collapse" id="bs-navi">
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">観葉植物シェア<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "投稿一覧", posts_path %></li>
-              <li><%= link_to "投稿する", new_post_path %></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">観葉植物のお店<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "皆のおすすめ", shops_path%></li>
-              <li><%= link_to "お店を投稿", new_shop_path%></li>
-            </ul>
-          </li>
-                    
-          <% if user_signed_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">マイページ<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "マイポスト", user_path(current_user.id) %></li>
-              <li><%= link_to "マイプラント", events_path%></li>
-            </ul>
-          </li>
-          <% end %>
-          <% if user_signed_in? %>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-          <% else %>
-            <li><%= link_to "ログイン", new_user_session_path, :class => 'post' %></li>
-            <li><%= link_to "新規登録", new_user_registration_path, :class => 'post' %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </nav>
--->
-
-<!---
-<nav class="navbar navbar-light navbar-fixed-top" style="background-color: #7BC61A;">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed text-white" data-toggle="collapse" data-target="#bs-navi" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="/users" class="navbar-brand">
-        <img src="https://img.icons8.com/color/96/000000/natural-food.png", alt="ロゴ", width="70" height="70", class="header-icon">
-      </a>
-        マイプラント
-    </div>
-
-    <div class="collapse navbar-collapse" id="bs-navi">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">観葉植物シェア<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "投稿一覧", posts_path %></li>
-            <li><%= link_to "投稿する", new_post_path %></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">観葉植物のお店<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "皆のおすすめ", shops_path%></li>
-            <li><%= link_to "お店を投稿", new_shop_path%></li>
-          </ul>
-        </li>
-                  
-        <% if user_signed_in? %>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle text-white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">マイページ<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "マイポスト", user_path(current_user.id) %></li>
-            <li><%= link_to "マイプラント", events_path%></li>
-          </ul>
-        </li>
-        <% end %>
-        <% if user_signed_in? %>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "ログイン", new_user_session_path, :class => 'post' %></li>
-          <li><%= link_to "新規登録", new_user_registration_path, :class => 'post' %></li>
-        <% end %>
-      </ul>
-  </div>
-</nav>
---->
-
-<div class="fixed-top">
-<nav class="navbar navbar-expand-lg navbar-light bg-success sticky-top">
-  <a href="/homes" >
-    <img src="https://img.icons8.com/color/96/000000/natural-food.png", class="header-logo",alt="ロゴ", width="60" height="60",class="header-icon">
-  </a>
-  <a class="navbar-brand text-white">
-  <span class="title-text1 text-white">CULT.</span><span class="title-text2 text-white">ivate</span>
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarsExample05">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown active">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">観葉植物シェア</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown05">
-          <a class="dropdown-item"<%= link_to "投稿一覧", posts_path %></a>
-          <a class="dropdown-item" <%= link_to "投稿する", new_post_path %></a>
-        </div>
-      </li>
-      <li class="nav-item dropdown active">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">観葉植物ショッピング</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown05">
-          <a class="dropdown-item" <%= link_to "皆のおすすめ", shops_path%></a>
-          <a class="dropdown-item" <%= link_to "お店を投稿", new_shop_path%></a>
-        </div>
-      </li>
-      <% if user_signed_in? %>
-        <li class="nav-item">
-          <a class="nav-link text-white" <%= link_to "水やり管理", events_path%></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" <%= link_to "マイページ", user_path(current_user.id) %></a>
-        </li>
-      <% end %>
-      <% if user_signed_in? %>
-      <li class="nav-item">
-        <a class="nav-link text-white" <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" <%= link_to "アカウントを編集", edit_user_path(current_user)%></a>
-      </li>
-      <% else %>
-      <li class="nav-item active">
-        <a class="nav-link text-white"  <%= link_to "ログイン", new_user_session_path, :class => 'post' %></a>
-        <a class="nav-link text-white" <%= link_to "新規登録", new_user_registration_path, :class => 'post' %></a>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-</nav>
-</div>
-</div>
-
-</header>
-
-<%= yield %>
-
-
-<footer class="footer bg-success">
-  <p>
-    Copyright CULT.ivate 2020.
-  </p>
-</footer>
-    
-
-
-  </body>
-</html>
-
-
-<%# 
-    <% meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/ %>
-

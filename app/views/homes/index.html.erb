@@ -1,46 +1,54 @@
-<div class="top-main">
-  <div class="container container-top">
-    <div class="row top-title">
-      <div class="toptitle-box col-12 text-white">
-        <a class="small-text1">CULT.</a><a class="small-text2">ivate</a>
+<%# 背景 %>
+<div class="home-main">
+  
+  <%# コンテナ %>
+  <div class="container container-home">
+    <%# タイトル %>
+    <div class="row top-title-row">
+      <div class="top-title-box col-12 text-white">
+        <a class="title-home1">CULT.</a><a class="title-home2">ivate</a>
       </div>
     </div>
-    <div class="row top-detail">
-      <div class="toptitle--detail-box col-12 text-white">
+    
+    <%# 概要 %>
+    <div class="row top-detail-row">
+      <div class="top-detail-box col-12 text-white">
         <p>お気に入りの観葉植物の写真やお店を皆でシェア。自分の観葉植物の水やりも忘れずに。</p>
         <p>観葉植物好きなあなたに送る、少しニッチで便利なサービス。</p>
       </div>
     </div>
-    <div class="row top-options">
+
+    <%# オプション %>    
+    <div class="row top-options-row mt-5">
       <div class="top-options-box col-md-4">
-        <div class="icon-cover">
           <%= link_to shops_path do %>
-            <img src="/assets/shop.png", width="200" height="200", class="top-icon">
-          <% end %>
-        </div>
-        <div class="options-detail">
-          <p>おすすめのお店</p>
-        </div>
+          <div class="icon-cover">
+              <img src="/assets/shop.png", width="200" height="200", class="top-icon">
+          </div>
+          <div class="options-detail">
+            <p>観葉植物のお店</p>
+          </div>
+        <% end %>
       </div>
       <div class="top-options-box col-md-4">
+      <%= link_to posts_path do %>
         <div class="icon-cover">
-          <%= link_to posts_path do %>
             <img src="/assets/camera.png/", width="200" height="200", class="top-icon">
-          <% end %>
         </div>
         <div class="options-detail">
           <p>コミュニティ</p>
         </div>
+      <% end %>
       </div>
       <div class="top-options-box col-md-4">
-        <div class="icon-cover">
         <%= link_to events_path do %>
+        <div class="icon-cover">
           <img src="/assets/watering.png", width="200" height="200", class="top-icon">
-        <% end %>
         </div>
         <div class="options-detail">
           <p>マイプラント管理</p>
         </div>
+       <% end %>
       </div>
     </div>
   <div>

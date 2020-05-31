@@ -1,37 +1,40 @@
 <div class ="container container-original">
-  <div class="row original-title-box">
+  <%# タイトル %>
+  <div class="row original-title-row">
     <div class="original-title col-12 text center">
       <img src="/assets/watering.png/", width="70" height="70", class="post-icon">
       <a> 自分の観葉植物を登録</a>
     </div>
   </div>
+
+  <%# 投稿フォーム %>
   <%= form_for [@original] do |f|%>
   <div class="row original-main mt-3">
-      <div class="original-pic-box col-12">
-          <p>写真をアップロード</p>
-          <%= f.label :image, class: 'neworiginal_image' do%>
-            <div class="preview-box">
-              <%= f.file_field :image, class: 'hidden original_img'%>
-                <img id="img2" style="width:295px;height:295px;" />
-            </div>
-          <% end %> 
-      </div>
-      <div class="original-name col-12 mt-2">
-        <p>観葉植物名</p>
-        <%= f.text_field :plantname, class: 'edit-original-text', placeholder: '植物名'%>
-      </div>
-      <div class="original-submit col-12 mt-3">
-        <%= f.submit '登録', class: "btn-outline-success"%>
-      </div>
+    <div class="original-pic-box col-12">
+      <p>写真をアップロード</p>
+      <%= f.label :image, class: 'neworiginal_image' do%>
+        <div class="preview-box">
+          <%= f.file_field :image, class: 'hidden original-img'%>
+            <img id="img2" style="width:295px;height:295px;" />
+        </div>
+      <% end %> 
     </div>
+    <div class="original-name col-12 mt-2">
+      <p>観葉植物名</p>
+      <%= f.text_field :plantname, class: 'edit-original-text', placeholder: '植物名'%>
+    </div>
+    <div class="original-submit col-12 mt-3">
+      <%= f.submit '登録', class: "btn-outline-success"%>
+    </div>
+  </div>
   <% end %>  
 </div>
 
 
-
+<%# 投稿フォームJS %>
 <script>
 $(function(){
-  $('.original_img').change(function(e){
+  $('.original-img').change(function(e){
     //ファイルオブジェクトを取得する
     var file = e.target.files[0];
     var reader = new FileReader();

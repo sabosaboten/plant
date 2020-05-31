@@ -1,37 +1,66 @@
-<div class= "container event-top">
-    <div class= "row plant-registration">
-        <button type="button" class="btn btn-success"><%= link_to "観葉植物の追加", new_original_path %></button>
+<div class= "container event-container">
+    
+    <%# タイトル %>
+    <div class= "row plant-registration-row">
+      <div class="events-title col-12">
+        <img src="/assets/watering.png/", width="70" height="70", class="post-icon">
+        <a> マイプラント</a>
+        <p>自分の観葉植物を登録して日々の水やりを記録していこう</p>
+      </div>
     </div>
-       <div class="row plant-cards">
-        <% @originals.each do |original| %>
-            <div class="col-lg-3 col-md-4 col-xs-6 card-index">
-                <div class="card-event">
-                    <div class="card-header">
-                      <%= original.plantname %>
-                    </div>
-                    <div class="card-header list">
-                      <%= link_to "編集", edit_original_path(original.id) %>
-                      <%= link_to "削除", original_path(original.id), method: :delete %>
-                    </div>
-                    <div class="card-img-top-event">
-                      <%= image_tag original.image, :size =>'200x200', class: 'myplant-image' if original.image.present?%>
-                    </div>
-                    <div class="card-text">
-                      <%= form_for @event do |f|%>
-                        <%= f.hidden_field :title, :value => "#{original.plantname}"%>          
-                      <div class ="field">
-                        <p><%= f.date_select :date %></p>
-                      </div>
-                      <div class ="field">
-                        <p><%= f.submit '水やり完了', class: "btn-outline-success" %></p>
-                      </div>
-                      <%end%>
-                    </div>
-                </div>
+
+    <%# 植物リスト %>
+    <div class="row plant-cards-row">
+      <% @originals.each do |original| %>
+        <div class="col-lg-3 col-md-4 col-xs-6 plant-card-index">
+          <div class="card event-card">
+            <div class="card-header event-card-header">
+              <%= original.plantname %>
             </div>
-        <%end%>
+            <div class="card-text event-status">
+              <%= link_to "編集", edit_original_path(original.id) %>
+              <%= link_to "削除", original_path(original.id), method: :delete %>
+            </div>
+            <div class="card-img-top-event">
+              <%= image_tag original.image, :size =>'200x200', class: 'myplant-image' if original.image.present?%>
+            </div>
+            <div class="card-text mt-2">
+              <%= form_for @event do |f|%>
+                <%= f.hidden_field :title, :value => "#{original.plantname}"%>          
+                <div class ="field">
+                  <p><%= f.date_select :date, use_month_numbers:true %></p>
+                </div>
+                <div class ="field">
+                  <p><%= f.submit '水やり完了', class: "btn-outline-success" %></p>
+                </div>
+              <%end%>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <%# カレンダー %>
+    <div class= "row plant-record-row">
+      <div class="events-record-title col-12">
+        <img src="/assets/calender.png/", width="50" height="50", class="calender-icon">
+        <a>水やりの記録カレンダー</a>
+      </div>
+    </div>
+    <div class="row my-plant-calender-row">
+      <div id="calendar"></div>
     </div>
 </div>
+
+<%# 新規投稿ボタン %>  
+<% if user_signed_in? %>
+  <div class="d-none d-lg-block">
+    <%= link_to icon("fas", "plus-circle") + '植物を登録', new_original_path, class: 'new-original-btn--pc' %>
+  </div>
+  <div class="d-block d-lg-none">
+    <%= link_to icon("fas", "plus"), new_original_path, class: 'new-original-btn--sp' %>
+  </div>
+<% end %>
+
 
 <!---
 <div class= "container event-top">
@@ -122,7 +151,3 @@
 <% end %> 
 
 --->
-
-<div class=" row my-plant-calender">
-  <div id="calendar"></div>
-</div>

@@ -28,6 +28,9 @@
   margin: 0 2px;
 }
 
+.preference:hover{
+  cursor: pointer;
+}
 
 /* 検索 */
 #keyword{
@@ -66,8 +69,6 @@
 }
 
 .posts-cards-row{
-  // display: flex;
-  // justify-content: center;
   margin: 0 auto;
 }
 
@@ -92,6 +93,23 @@
   justify-content: center;
   height: 300px;
   width: 300px;
+}
+
+/* 全ページ共通のページネーション */
+.pagination{
+  justify-content: center;
+}
+
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: green;   /*文字の色を変える*/
+}
+.pagination>.active>a {     
+  background: darkgreen;     /*背景の色を変える*/
+}
+
+.pagination .current { 
+  background:green;
 }
 
 /* 新規投稿ボタン */
@@ -135,6 +153,8 @@
     }
   }
 }
+
+
 
 
 // 削除予定
