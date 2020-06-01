@@ -17,22 +17,15 @@ class UsersController < ApplicationController
     @posts = user.posts
     @users = User.all
     @likes = user.likes
-
     @originals = user.originals
-    
     @shops = @user.shops
+    @events = @user.events
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
       marker.lat shop.latitude
       marker.lng shop.longitude
       # marker.infowindow shop.name
       marker.infowindow render_to_string(partial:"shops/infowindow", locals:{ shop: shop })
     end
-
-    @events = @user.events
-
-  end
-
-  def index
   end
 
   def new_guest
