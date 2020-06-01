@@ -16,6 +16,16 @@
   margin: 0 2px;
 }
 
+.preference.active a{
+  color: white;
+  text-decoration: none;
+}
+
+.preference a{
+  color: green;
+  text-decoration: none;
+}
+
 .preference{
   display: inline-block;
   padding: 15px 0;
@@ -55,7 +65,10 @@
   border-radius: 50px;
   margin-bottom: 7px;
   margin-top: 10px;
+  color: saddlebrown;
+  font: bold;
 }
+
 
 /* 投稿一覧(新規投稿) */
 .swich.show{
@@ -80,7 +93,7 @@
 }
 
 .post-card{
-  width: 300px;
+  width: 301.5px;
   height: 100%;
 }
 
@@ -89,10 +102,10 @@
 }
 
 .card-img-top{
-  display: flex;
-  justify-content: center;
-  height: 300px;
-  width: 300px;
+  // display: flex;
+  // justify-content: center;
+  // height: 300px;
+  // width: 300px;
 }
 
 /* 全ページ共通のページネーション */
