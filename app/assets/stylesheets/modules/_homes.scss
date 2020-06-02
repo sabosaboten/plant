@@ -6,12 +6,12 @@
   min-height: 95vh;
   width: 100%;
   position: relative;
-  margin-bottom: 45px;
 }
 
 /* コンテナ */
 .container-home{
-  padding-top: 150px;
+  padding-top: 110px;
+  padding-bottom: 50px;
 }
 
 /* タイトル */
@@ -48,7 +48,7 @@
 }
 
 .top-detail-box{
-  padding-top: 50px;
+  padding-top: 25px;
   text-shadow: 1px 2px 3px gray;
 }
 
@@ -60,16 +60,21 @@
   background-color: white;
   font-size: 18px;
   margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 10px;
   text-align: center;
   box-shadow: 0px 0px 10px 3px#7BC61A;
   text-decoration: none;
+  margin-top: 20px;
 }
 
 .top-icon {
   margin: 14px;
   padding: 25px;
+}
+
+.options-detail p{
+  text-decoration: none;
+  color: green;
+  font: bold;
 }
 
 
