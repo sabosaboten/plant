@@ -87,12 +87,12 @@
   height: 230px;
   margin: 0 auto; 
   box-shadow: 0px 0px 10px 3px#7BC61A;
-  overflow: hidden;	/*拡大時にはみ出た部分を隠す*/
+  overflow: hidden;
   display: block;
-	transition-duration: 0.2s;	/*変化に掛かる時間*/
+	transition-duration: 0.2s;
 }
 
 .icon-cover:hover {
-	transform: scale(1.15);	/*画像の拡大率*/
-	transition-duration: 0.2s;	/*変化に掛かる時間*/
+	transform: scale(1.15);
+	transition-duration: 0.2s;
 }

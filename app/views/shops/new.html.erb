@@ -1,5 +1,4 @@
 <div class ="container shop-newpost">
-  
   <%# タイトル %>
   <div class="row newshop-title-row">
     <div class="newshop-title col-12">
@@ -7,7 +6,6 @@
       <a>観葉植物店を登録</a>
     </div>
   </div>
-
   <%# 投稿作成 %>
   <div class="row newshop-row mt-5">
     <div class="newpost-info-box col-md-5">
@@ -23,7 +21,6 @@
       </div>
       <% end %>
     </div>
-    
     <%# 検索用のマップ %>
     <div class="newpost-map-box col-md-7">
       <div class="newpost-searchbox">
@@ -38,26 +35,3 @@
     
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Jr1NrfngK80oIANtzFL6LWsYJSKoz3c&libraries=places&callback=initAutocomplete"
 async defer></script>
-
-
-<!---
-<div class="shopping-main">
-   <div class="shopping-map">
-
-      <%= form_for(@shop) do |f| %>
-      <h4>名前</h4>
-      <%= f.text_field :name, placeholder: "名前" %>
-      <h4>住所</h4>
-      <%= f.text_field :address, placeholder: "住所" %>
-      <h4>ポイント</h4>
-      <%= f.text_field :text, placeholder: "ポイント" %>
-      
-      <%= f.submit "登録する" %>
-      <% end %>
-   </div> 
-</div>
-
-   <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    <div id="map"></div>
-
---->
