@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 
+/* ヘッダー */
 .header-logo{
   border-radius: 80px;
   border: 5px solid #7BC61A;
@@ -20,6 +21,7 @@
   vertical-align: text-bottom;
 }
 
+/* フッター */
 .footer {
   height: 50px;
   width: 100vw;
@@ -34,7 +36,6 @@
 
 
 /* ローディング画面 */
-
 .box{
   position: fixed;
   top: 0;
@@ -42,9 +43,9 @@
   width: 100vw;
   height: 100vh;
   z-index: 9999;
-  -webkit-transition: all 1.2s ease; /* 1.2秒でフェードアウト */
+  -webkit-transition: all 1.2s ease;
           transition: all 1.2s ease;
-  color: #fff; /* ローディングアニメーションカラー */
+  color: #fff;
   background-color:#afa;
 }
 
@@ -53,7 +54,6 @@
   visibility:hidden;
   pointer-events:none;
 }
-
 
 .spinner {
   position: absolute;
@@ -67,7 +67,6 @@
   height: 120px;
 }
  
-/* Loading テキスト */
 .spinner span {
   position: absolute;
   top: 50%;
@@ -82,16 +81,13 @@
   border-width: 8px;
   border-style: solid;
   border-color: #fff rgba(255, 255, 255, 0.12) rgba(255, 255, 255, 0.12);
-  /* ローディング要素のアニメーションを指定 */
   -webkit-animation: spinner1_1 1.5s infinite linear forwards;
           animation: spinner1_1 1.5s infinite linear forwards;
 }
 .spinner.type1 span {
-  /* Loading テキストのアニメーションを指定 */
   animation: spinner_loading_text 1.5s infinite linear forwards reverse;
 }
  
-/* ローディング要素のアニメーション内容 */
 @-webkit-keyframes spinner1_1 {
   0% {
     -webkit-transform: translate(-50%, -50%) rotate(0);
@@ -114,7 +110,6 @@
   }
 }
  
-/* Loading テキストのアニメーション内容 */
 @-webkit-keyframes spinner_loading_text {
   0% {
     opacity: 1;

@@ -10,95 +10,15 @@
     <%= csrf_meta_tags%>
   </head>
   <body data-turbolinks="false">
-    <header class="header">
-      <div class="fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-light bg-success sticky-top">
-          <a href="/homes" >
-            <img src="https://img.icons8.com/color/96/000000/natural-food.png", class="header-logo",alt="ロゴ", width="60" height="60",class="header-icon">
-          </a>
-          <a href="/homes" class="navbar-brand text-white">
-            <span class="title-header1 text-white">CULT.</span><span class="title-header2 text-white">ivate</span>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarsExample05">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item dropdown active">
-                <a class="nav-link dropdown-toggle text-white" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">観葉植物シェア</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown05">
-                  <a class="dropdown-item" <%= link_to "投稿一覧", posts_path %></a>
-                  <a class="dropdown-item" <%= link_to "投稿する", new_post_path %></a>
-                </div>
-              </li>
-              <li class="nav-item dropdown active">
-                <a class="nav-link dropdown-toggle text-white" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">観葉植物のお店</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown05">
-                  <a class="dropdown-item" <%= link_to "皆のおすすめ", shops_path%></a>
-                  <a class="dropdown-item" <%= link_to "お店を共有", new_shop_path%></a>
-                </div>
-              </li>
-              <% if user_signed_in? %>
-                <li class="nav-item">
-                  <a class="nav-link text-white" <%= link_to "水やり管理", events_path%></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" <%= link_to "マイページ", user_path(current_user.id) %></a>
-                </li>
-              <% end %>
-            </ul>
-            <ul class="navbar-nav">
-              <% if user_signed_in? %>
-                <li class="nav-item">
-                  <a class="nav-link text-white" <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" <%= link_to "アカウントを編集", edit_user_path(current_user)%></a>
-                </li>
-              <% else %>
-                <li class="nav-item active ">
-                  <a class="nav-link text-white"  <%= link_to "ログイン", new_user_session_path, :class => 'post' %></a>
-                  <a class="nav-link text-white" <%= link_to "新規登録", new_user_registration_path, :class => 'post' %></a>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </header>
+    <%= render 'header' %>
     <%= yield %>
-    <footer class="footer bg-success">
-      <p>Copyright CULT.ivate 2020.</p>
-    </footer>
+    <%= render 'footer' %>
   </body>
 </html>
 
 <%# ローディング画面 %>
 <div id="my-spinner" class="box">
-  <!-- type1 〜 type8 はお好みで -->
   <div class="spinner type1">
     <span>Loading...</span>
   </div>
 </div>
-
-
-<%# -# !!!
--# %html
--#   %head
--#     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
--#     %title Plant
--#     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
--#     = javascript_include_tag 'application', 'data-turbolinks-track' => true
--#     = csrf_meta_tags
--#   %body
--#     .header
--#       = link_to "プラントマネジメント", posts_path
--#       = link_to "投稿一覧", posts_path
--#       = link_to "投稿", new_post_path
--#       = link_to "ショッピングページ", maps_index_path
--#       = link_to "プラント管理ページ", schedules_path
--#       = link_to "投稿マイページ", user_path(current_user)
--#       = link_to edit_user_path(current_user) do
--#         = icon('fas', 'cog', class: 'icon')
--#     = yield
--#     .footer %>
