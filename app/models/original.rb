@@ -3,5 +3,8 @@ class Original < ApplicationRecord
   has_many :event_originals
   has_many :events, through: :event_originals
 
+  validates :image, presence: true
+  validates :plantname, presence: true
+
   mount_uploader :image, ImageUploader
 end

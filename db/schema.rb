@@ -52,18 +52,6 @@ ActiveRecord::Schema.define(version: 20200524041835) do
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
-  create_table "maps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "shopname"
-    t.string   "address"
-    t.float    "latitude",   limit: 24
-    t.float    "longitude",  limit: 24
-    t.string   "text"
-    t.integer  "user_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.index ["user_id"], name: "index_maps_on_user_id", using: :btree
-  end
-
   create_table "originals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "image"
     t.string   "plantname"
@@ -122,7 +110,6 @@ ActiveRecord::Schema.define(version: 20200524041835) do
   add_foreign_key "events", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
-  add_foreign_key "maps", "users"
   add_foreign_key "originals", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "shops", "users"
