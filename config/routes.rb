@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root "homes#index"
   
   resources :users, only: [:edit, :update, :show, :index]
-  resources :events 
   resources :homes, only: [:index]
 
 
@@ -25,6 +24,7 @@ Rails.application.routes.draw do
 
   resources :shops, only: [:new, :create, :edit, :update, :index, :destroy]
   resources :originals
+  resources :events 
 
   post '/users/guest_sign_in', to: 'users#new_guest'
 

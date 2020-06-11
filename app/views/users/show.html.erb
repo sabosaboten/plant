@@ -105,7 +105,8 @@
   <%# 各ユーザー情報：フォロー %> 
   <div class="swich">
     <div class="row user-follower">
-        <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+        <% @user.following_user.each do |user| %>
+        <%# <% @user.following_user.where.not(id: current_user.id).each do |user| %>
           <div class="col-12 text-center">
             <p>
               <%= link_to "#{user.name}", user_path(user) %>             
@@ -124,7 +125,8 @@
   <%# 各ユーザー情報：フォロワー %> 
   <div class="swich">
     <div class="row user-followed">
-        <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+        <% @user.follower_user.each do |user| %>
+        <%# <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
           <div class="col-12 text-center">
           <p>
               <%= link_to "#{user.name}", user_path(user) %>
@@ -140,7 +142,7 @@
         <% end %>
     </div>
   </div>
-  <%# 各ユーザー情報：観葉植物天 %> 
+  <%# 各ユーザー情報：観葉植物店 %> 
   <div class="swich">
     <div class="row user-shop">
       <div id="map" style="width: 500px; height: 500px;" class="myapage-shopmap col-12">>

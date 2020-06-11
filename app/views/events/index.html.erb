@@ -26,7 +26,8 @@
             </div>
             <div class="card-text mt-2">
               <%= form_for @event do |f|%>
-                <%= f.hidden_field :title, :value => "#{original.plantname}"%>          
+                <%= f.hidden_field :title, :value => "#{original.plantname}"%>      
+                <%= f.hidden_field :original_id, :value => "#{original.id}"%>        
                 <div class ="field">
                   <p><%= f.date_select :date, use_month_numbers:true %></p>
                 </div>

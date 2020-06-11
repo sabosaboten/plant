@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200524041835) do
+ActiveRecord::Schema.define(version: 20200524040927) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "message"
@@ -22,24 +22,17 @@ ActiveRecord::Schema.define(version: 20200524041835) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
-  create_table "event_originals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "event_id"
-    t.integer  "original_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["event_id"], name: "index_event_originals_on_event_id", using: :btree
-    t.index ["original_id"], name: "index_event_originals_on_original_id", using: :btree
-  end
-
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.text     "description", limit: 65535
     t.datetime "start_date"
     t.datetime "end_date"
-    t.date     "date"
+    t.date     "date",                      null: false
+    t.integer  "original_id"
     t.integer  "user_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.index ["original_id"], name: "index_events_on_original_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
@@ -53,8 +46,8 @@ ActiveRecord::Schema.define(version: 20200524041835) do
   end
 
   create_table "originals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "image"
-    t.string   "plantname"
+    t.string   "image",      null: false
+    t.string   "plantname",  null: false
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -78,8 +71,8 @@ ActiveRecord::Schema.define(version: 20200524041835) do
   end
 
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "address"
+    t.string   "name",                  null: false
+    t.string   "address",               null: false
     t.float    "latitude",   limit: 24
     t.float    "longitude",  limit: 24
     t.string   "text"
@@ -105,8 +98,7 @@ ActiveRecord::Schema.define(version: 20200524041835) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "event_originals", "events"
-  add_foreign_key "event_originals", "originals"
+  add_foreign_key "events", "originals"
   add_foreign_key "events", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
