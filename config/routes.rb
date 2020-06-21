@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "users#index"
-  
-  resources :schedules
+  root "homes#index"
   
   resources :users, only: [:edit, :update, :show, :index]
-  resources :events 
-
+  resources :homes, only: [:index]
 
 
   get '/map_request', to: 'maps#map', as: 'map_request'
@@ -25,8 +22,10 @@ Rails.application.routes.draw do
   get "maps/index"
   resources :maps, only: [:index]
 
-  resources :shops
-
+  resources :shops, only: [:new, :create, :edit, :update, :index, :destroy]
   resources :originals
+  resources :events 
+
+  post '/users/guest_sign_in', to: 'users#new_guest'
 
 end

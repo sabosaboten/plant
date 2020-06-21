@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except: [:new_guest]
   def edit
   end
 
@@ -17,21 +18,25 @@ class UsersController < ApplicationController
     @posts = user.posts
     @users = User.all
     @likes = user.likes
-    
+    @originals = user.originals
     @shops = @user.shops
+    @events = @user.events
     @hash = Gmaps4rails.build_markers(@shops) do |shop, marker|
       marker.lat shop.latitude
       marker.lng shop.longitude
       # marker.infowindow shop.name
       marker.infowindow render_to_string(partial:"shops/infowindow", locals:{ shop: shop })
     end
-
-    @events = @user.events
-
   end
 
-  def index
-
+  def new_guest
+    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "ゲスト"
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+    end
+    sign_in user
+    redirect_to homes_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
   private

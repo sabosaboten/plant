@@ -1,0 +1,56 @@
+<%# 背景 %>
+<div class="home-main">
+  
+  <%# コンテナ %>
+  <div class="container container-home">
+    <%# タイトル %>
+    <div class="row top-title-row">
+      <div class="top-title-box col-12 text-white">
+        <a class="title-home1">CULT.</a><a class="title-home2">ivate</a>
+      </div>
+    </div>
+    
+    <%# 概要 %>
+    <div class="row top-detail-row">
+      <div class="top-detail-box col-12 text-white">
+        <p>お気に入りの観葉植物の写真やお店を皆でシェア。自分の観葉植物の水やりも忘れずに。</p>
+        <p>観葉植物好きなあなたに送る、少しニッチで便利なサービス。</p>
+      </div>
+    </div>
+
+    <%# オプション %>    
+    <div class="row top-options-row mt-3">
+      <div class="top-options-box col-md-4">
+          <%= link_to shops_path do %>
+          <div class="icon-cover">
+              <img src="/assets/shop.png", width="200" height="200", class="top-icon">
+          </div>
+          <div class="options-detail">
+            <p>観葉植物のお店</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="top-options-box col-md-4">
+      <%= link_to posts_path do %>
+        <div class="icon-cover">
+            <img src="/assets/camera.png/", width="200" height="200", class="top-icon">
+        </div>
+        <div class="options-detail">
+          <p>シェア</p>
+        </div>
+      <% end %>
+      </div>
+      <div class="top-options-box col-md-4">
+        <%= link_to events_path do %>
+        <div class="icon-cover">
+          <img src="/assets/watering.png", width="200" height="200", class="top-icon">
+        </div>
+        <div class="options-detail">
+          <p>マイプラント管理</p>
+        </div>
+       <% end %>
+      </div>
+    </div>
+  <div>
+</div>
+</div>

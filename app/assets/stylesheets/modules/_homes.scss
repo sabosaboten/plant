@@ -1,0 +1,98 @@
+/* 背景 */
+.home-main {
+  background-image: url(/assets/top.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 95vh;
+  width: 100%;
+  position: relative;
+}
+
+/* コンテナ */
+.container-home{
+  padding-top: 110px;
+  padding-bottom: 50px;
+}
+
+/* タイトル */
+.top-title-box{
+  text-align: center;
+  text-shadow: 2px 3px 4px #808080;
+}
+
+
+.title-home1{
+  font-size: 100px;
+  font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+.title-home2{
+  font-size: 50px;
+  font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+
+/* 概要 */
+.top-detail-box{
+  text-align: center;
+  font: bold;
+}
+
+/* オプション */
+.top-options-row{
+  text-align: center;
+ }
+
+ .top-options-box{
+  margin-top: 5px;
+}
+
+.top-detail-box{
+  padding-top: 25px;
+  text-shadow: 1px 2px 3px gray;
+}
+
+.options-detail{
+  width: 200px;
+  height: 32px;
+  border-radius: 30px;
+  border: 4px solid #7BC61A;
+  background-color: white;
+  font-size: 18px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0px 0px 10px 3px#7BC61A;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.top-icon {
+  margin: 14px;
+  padding: 25px;
+}
+
+.options-detail p{
+  text-decoration: none;
+  color: green;
+  font: bold;
+}
+
+
+/* アイコン */
+.icon-cover{
+  border-radius: 125px;
+  border: 4px solid #7BC61A;
+  background-color: white;
+  width: 230px;
+  height: 230px;
+  margin: 0 auto; 
+  box-shadow: 0px 0px 10px 3px#7BC61A;
+  overflow: hidden;
+  display: block;
+	transition-duration: 0.2s;
+}
+
+.icon-cover:hover {
+	transform: scale(1.15);
+	transition-duration: 0.2s;
+}

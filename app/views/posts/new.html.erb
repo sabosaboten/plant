@@ -1,20 +1,29 @@
-<%# -# .form
--#   = form_for [@post] do |f|
--#     .input_box
--#       = f.text_field :text, class: 'text_frecuency', placeholder: '記事'
--#       .form__image
--#         = f.label :image, class: 'form__image' do
--#           = icon('fas', 'image', class: 'icon')
--#           = f.file_field :image, class: 'hidden'
--#     = f.submit 'Send', class: 'form__submit' %>
-
-<div class ="post-box">
+<div class ="container newpost">
+  <%# タイトル %>
+  <div class="row newpost-title-row">
+    <div class="newpost-each newpost-title col-12 text center">
+      <img src="/assets/camera.png/", width="50" height="50", class="post-icon">
+      <a>  コミュニティに投稿</a>
+    </div>
+  </div>
+  <%# 投稿フォーム %>
   <%= form_for [@post] do |f|%>
-    <%= f.text_field :text, class: 'text_frecuency', placeholder: '記事'%>
-      <%= f.label :image, class: 'form__image' do%>
-        <%= icon('fas', 'image', class: 'icon')%>
-        <%= f.file_field :image, class: 'hidden'%>
-    <%= f.submit 'Send', class: 'form__submit'%>
-    <% end %>
+  <div class="row newpost-main-row mt-3">
+    <div class="newpost-image-box col-12">
+      <p>写真をアップロード</p>
+      <%= f.label :image, class: 'newpost-image' do%>
+        <div class="preview-place">
+          <%= f.file_field :image, class: 'hidden post-img'%>
+            <img id="img1" style="width:295px;height:295px;" />
+        </div>
+      <% end %>  
+    </div>
+    <div class="newpost-each col-12 mt-2">
+      <%= f.text_area :text, class: 'newpost-text', rows: 5, cols: 10, placeholder: '...'%>
+    </div>
+    <div class="newpost-each col-md-12 mt-2">
+      <%= f.submit '投稿', class: "btn-outline-success"%>
+    </div>
+  </div>
   <% end %>
 </div>

@@ -1,0 +1,75 @@
+.container-postshow{
+  margin-top: 120px;
+  margin-bottom: 70px;
+}
+
+/* 投稿写真詳細 */
+.postshow-card{
+  width: 450px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.card-img-postshow{
+  display: flex;
+  justify-content: center;
+  height: 449px;
+  width: 449px;
+}
+
+.fa-comment-dots {
+  width: 25px;
+  height: 30px;
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.like-btn {
+  width: 25px;
+  height: 30px;
+  font-size: 25px;
+  color: #808080; 
+  margin-left: 5px;
+  }
+ 
+ .unlike-btn {
+  width: 25px;
+  height: 30px;
+  font-size: 25px;
+  color: #e54747;
+  margin-left: 5px;
+  }
+
+
+/* コメント */
+.postshow-comment-create-box{
+  text-align: center;
+  padding: 15px;
+}
+
+.postshow-comment-create-header{
+  font-size: 20px;
+  text-align: center;
+}
+
+.postshow-comment-text{
+  height: 100px;
+  width: 90%;
+  border: solid 2px green;
+  border-radius: 30px;
+  padding: 0 20px;
+}
+
+.postshow-comment-header{
+  border-bottom: solid 2px green;
+  font-size: 20px;
+  text-align: center;
+}
+
+.postshow-comment-box{
+  border-bottom: dotted 2px green;
+}
+
+.postshow-comment-status{
+  text-align: right;
+}

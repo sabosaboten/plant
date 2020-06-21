@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
@@ -15,6 +16,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.find(params[:id])
   end
 
   # GET /events/new
@@ -24,16 +26,18 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @event = Event.find(params[:id])
   end
 
   # POST /events
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        # format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        # format.json { render :show, status: :created, location: @event }
+        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -47,7 +51,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to events_path, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -74,6 +78,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :description, :start_date, :end_date, :date).merge(user_id: current_user.id)
+      params.require(:event).permit(:title, :description, :start_date, :end_date, :date, :original_id).merge(user_id: current_user.id)
     end
 end

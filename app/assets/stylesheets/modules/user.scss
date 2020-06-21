@@ -1,5 +1,10 @@
+#account-page.account-page{
+  margin-top: 150px;
+}
+
 .account-page {
   .account-page__inner {
+    margin-top: 200px;
     width: 980px;
     margin: 60px auto;
     padding: 60px;
@@ -139,3 +144,65 @@
     font-size: 13px;
   }
 }
+
+.container-user{
+  width: 100%;
+  margin-top: 200px;
+}
+
+.user-main-row{
+  border: solid 3px green;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.user-main-top{
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-main-bottom{
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.user-btn {
+  display: inline-block;
+  height: 50px;
+  padding: 0 30px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  background-color: green;
+  margin: 15px;
+  color: white;
+  width: 220px;
+  text-decoration: none;
+}
+
+  .name-box{
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .address-box{
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .user-actions{
+    margin-top: 20px;
+  }
+
+  #user_name, #user_email{
+    width: 400px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 0 10px;
+  }

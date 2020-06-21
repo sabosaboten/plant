@@ -16,15 +16,15 @@
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "modules/posts";
-@import "modules/edit-create";
-@import "modules/post";
-@import "modules/mypage";
+// @import "bootstrap-sprockets";
 @import "modules/base";
-@import "modules/user";
-@import "modules/shop";
-@import "modules/top";
-@import "modules/event";
-@import "bootstrap-sprockets";
 @import "bootstrap";
-@import "modules/shops-index"
+@import "modules/homes";
+@import "modules/posts_index-search";
+@import "modules/posts_new-edit";
+@import "modules/posts_show";
+@import "modules/user";
+@import "modules/users_show";
+@import "modules/shops_new-edit";
+@import "modules/shops_index";
+@import "modules/events";

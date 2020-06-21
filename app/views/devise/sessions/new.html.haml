@@ -19,3 +19,40 @@
               = f.password_field :password, autocomplete: "off"
           .actions
             = f.submit "Log in", class: 'btn'
+
+
+-# <div class ="container container-user">
+-#   <%# タイトル %>
+-#   <div class="row user-title-row">
+-#     <div class="user-title col-12 text-center">
+-#       <h2> アカウントの登録</h2>
+-#       <%# <h5> アカウントの編集</h5> %>
+-#     </div>
+-#   </div>
+-#   <%# 投稿フォーム %>
+-#   <div class="user-main-row com-12">
+-#     <div class="user-main-bottom">
+-#       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|%>
+-#         <div class="name-box">
+-#           <div class="name-label">
+-#             <%= f.label :name%>
+-#           </div>
+-#           <div class="name-input">
+-#             <%= f.text_field :name, autofocus: true%>
+-#           </div>
+-#         </div>
+-#         <div class="address-box">
+-#           <div class="address-label">
+-#             <%= f.email_field :email, autofocus: true%>
+-#           </div>
+-#           <div class="address-input">
+-#             <%= f.password_field :password, autocomplete: "off"%>
+-#           </div>
+-#           <div class="user-actions">
+-#             <%= f.submit "登録する", class: 'user-btn'%>
+-#           </div>
+-#         </div>
+-#       <%end%>
+-#     </div>
+-#   </div>
+-# </div>

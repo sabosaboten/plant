@@ -1,4 +1,6 @@
 class ShopsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+
   def index
     # @shop = Shop.new
     @shops = Shop.all
@@ -21,6 +23,23 @@ class ShopsController < ApplicationController
   def create
     @shop = Shop.create(shop_params)
     redirect_to shops_path
+  end
+
+  def edit
+    @shop = Shop.find(params[:id])
+  end
+
+  def update
+    shop = Shop.find(params[:id])
+    shop.update(shop_params)
+    redirect_to shops_path
+  end
+
+
+  def destroy
+    shop = Shop.find(params[:id])
+    shop.destroy
+    redirect_back(fallback_location: shops_path) 
   end
 
   private
