@@ -74,3 +74,7 @@ gem 'momentjs-rails'
 gem 'bootstrap', '~> 4.5.0'
 
 gem 'kaminari'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
