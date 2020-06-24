@@ -1,29 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
 # CULT.ivate
 観葉植物の育成を趣味としている人々に向けた観葉植物の総合SNSアプリです。
 (以下のサービスを使用できます)
@@ -41,7 +15,7 @@ Things you may want to cover:
 また、観葉植物への水やりを最後にいつやったか忘れてしまうことが多くあるため、カレンダーに記録をすることで、水やりのスケジュールを把握する機能があります。
 
 ## URL
-https://<br>
+http://18.181.11.230/<br>
 - 非ログイン状態の場合は閲覧、検索のみ可能です。ログインすると投稿やコメントが可能になります。<br>
 - ログイン画面の「かんたんログイン」をクリックすると、メールアドレスとパスワードを入力せずにログインできます。<br>
 - レスポンシブ対応しているので、スマホからでもご覧いただけます。
@@ -49,14 +23,14 @@ https://<br>
 ## 使用技術
 - Ruby 2.5.1, Rails 5.0.7.2
 - MySQL 5.6.47
+- Sass, Bootstrap, jQuery
+- Fullcalender
+- Google Map Api
 <!-- - Nginx, Puma
 - AWS（VPC, ECS, ECR, RDS, Route 53, ELB, ACM, S3, CloudFront）
 - Docker/docker-compose
 - CircleCI (CI/CDパイプラインを構築)
 - RSpec -->
-- Sass, Bootstrap, jQuery
-- Fullcalender
-- Google Map Api
 
 ## AWS構成図
 <!-- ![AWS構成図]() -->
@@ -109,3 +83,20 @@ https://<br>
 
 ## ER図
 ![ER図](https://user-images.githubusercontent.com/64722228/84588808-4887a300-ae65-11ea-8636-64687c1887c0.png)
+
+## 工夫したポイント
+- サービス
+  - マイページにユーザー関連の情報を追加することで、興味のあるユーザーの情報を一覧で見れるようにしました
+  - Google Map APIを使用することで、観葉植物店の情報を簡単に登録できるようにしました
+- 直感的な操作性
+  - 一貫したデザインを通して、説明無しで操作方法がわかり、クリックの数を減らすことで簡単に使えるようにしています
+- レスポンシブなデザイン
+  - どのデバイスからでも見れるように、全ページがレスポンシブ対応になっており、「投稿」等の表記がサイズによって変更します
+
+## 課題や今後実装したい機能
+- 非同期通信の実装
+- 複数画像の投稿
+- 編集時に画像が表示されない点の修正
+- fullcalenderの機能の追加
+- オンラインショッピング関係のapiの導入
+- テストの追加
