@@ -33,7 +33,8 @@
       <div class="top-options-box col-md-4">
       <%= link_to posts_path do %>
         <div class="icon-cover">
-            <img src="/assets/camera.png/", width="200" height="200", class="top-icon">
+            <%# <img src="/assets/camera.png/", width="200" height="200", class="top-icon"> %>
+            <%= image_tag src="camera.png", size: "200x200", class: "top-icon"%>                 
         </div>
         <div class="options-detail">
           <p>シェア</p>
