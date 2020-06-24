@@ -2,7 +2,8 @@
   <%# タイトル %>
   <div class="row newpost-title-row">
     <div class="newpost-each newpost-title col-12 text center">
-      <img src="/assets/camera.png/", width="50" height="50", class="post-icon">
+      <%# <img src="/assets/camera.png/", width="50" height="50", class="post-icon"> %>
+      <%= image_tag src="camera.png", size: "50x50", class: "post-icon"%>             
       <a>  コミュニティに投稿</a>
     </div>
   </div>

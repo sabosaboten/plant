@@ -23,7 +23,8 @@
       <div class="top-options-box col-md-4">
           <%= link_to shops_path do %>
           <div class="icon-cover">
-              <img src="/assets/shop.png", width="200" height="200", class="top-icon">
+            <%# <img src="/assets/shop.png", width="200" height="200", class="top-icon"> %>
+            <%= image_tag src="shop.png", size: "200x200", class: "top-icon"%>                   
           </div>
           <div class="options-detail">
             <p>観葉植物のお店</p>
@@ -44,7 +45,8 @@
       <div class="top-options-box col-md-4">
         <%= link_to events_path do %>
         <div class="icon-cover">
-          <img src="/assets/watering.png", width="200" height="200", class="top-icon">
+          <%# <img src="/assets/watering.png", width="200" height="200", class="top-icon"> %>
+          <%= image_tag src="watering.png", size: "200x200", class: "top-icon"%>               
         </div>
         <div class="options-detail">
           <p>マイプラント管理</p>

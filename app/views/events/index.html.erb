@@ -3,7 +3,8 @@
     <%# タイトル %>
     <div class= "row plant-registration-row">
       <div class="events-title col-12">
-        <img src="/assets/watering.png/", width="70" height="70", class="post-icon">
+        <%# <img src="/assets/watering.png/", width="70" height="70", class="post-icon"> %>
+        <%= image_tag src="watering.png", size: "70x70", class: "post-icon"%>             
         <a> マイプラント</a>
         <p>自分の観葉植物を登録して日々の水やりを記録していこう</p>
       </div>
@@ -43,7 +44,8 @@
     <%# カレンダー %>
     <div class= "row plant-record-row mt-3">
       <div class="events-record-title col-12">
-        <img src="/assets/calender.png/", width="50" height="50", class="calender-icon">
+        <%= image_tag src="calender.png", size: "50x50", class: "calender-icon"%>           
+        <%# <img src="/assets/calender.png/", width="50" height="50", class="calender-icon"> %>
         <a>水やりの記録カレンダー</a>
       </div>
     </div>
