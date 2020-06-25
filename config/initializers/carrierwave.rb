@@ -3,6 +3,9 @@ require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
+  if Rails.env.development? || Rails.env.test?
+    config.storage = :file
+  else  
   config.storage = :fog
   config.fog_provider = 'fog/aws'
   config.fog_credentials = {
@@ -14,4 +17,5 @@ CarrierWave.configure do |config|
 
   config.fog_directory  = 'plant2020'
   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/plant2020'
+  end
 end
