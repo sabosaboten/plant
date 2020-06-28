@@ -26,13 +26,13 @@ http://18.181.11.230/<br>
 - Sass, Bootstrap, jQuery
 - Fullcalender
 - Google Map Api
-- Nginx, Puma
-- AWS（EC2, S3）
-<!-- - Docker/docker-compose
+<!-- - Nginx, Puma
+- AWS（VPC, ECS, ECR, RDS, Route 53, ELB, ACM, S3, CloudFront）
+- Docker/docker-compose
 - CircleCI (CI/CDパイプラインを構築)
 - RSpec -->
 
-<!-- ## AWS構成図 -->
+## AWS構成図
 <!-- ![AWS構成図]() -->
 
 ## 機能一覧
